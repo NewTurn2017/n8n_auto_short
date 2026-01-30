@@ -321,7 +321,7 @@ MIT License - 자유롭게 사용하세요!
 
 ## 만든 사람
 
-강의 문의: [이메일 또는 연락처 추가]
+강의 문의: 지니(genie@codewithgenie.com)
 
 ---
 
