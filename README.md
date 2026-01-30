@@ -47,6 +47,7 @@
 | RapidAPI | 유튜브 자막 추출 | 무료 티어 있음 |
 | Kie AI | 이미지/영상/음성 생성 | 유료 (종량제) |
 | Google AI Studio | AI 대본 생성 | 무료 |
+| Telegram | 봇으로 URL 전송 & 완료 알림 | 무료 |
 
 ---
 
@@ -132,7 +133,7 @@ ngrok http --url=my-workflow.ngrok-free.dev 5678
 1. n8n에 접속합니다 (http://localhost:5678)
 2. 왼쪽 메뉴에서 **Workflows** 클릭
 3. 오른쪽 위 **Import from File** 클릭
-4. 이 저장소의 `YouTube Recreation v2.json` 파일을 선택
+4. 이 저장소의 `YouTube Recreation.json` 파일을 선택
 
 ---
 
@@ -171,6 +172,19 @@ ngrok http --url=my-workflow.ngrok-free.dev 5678
 2. API Key 생성
 3. n8n에서 "Google AI" credential 생성
 
+### 5. Telegram Bot (선택사항)
+
+Telegram으로 YouTube URL을 보내면 자동으로 영상이 생성되고, 완료 시 알림을 받을 수 있습니다.
+
+1. Telegram에서 [@BotFather](https://t.me/botfather)에게 메시지 보내기
+2. `/newbot` 명령어 입력
+3. 봇 이름과 username 설정 (예: `MyYouTubeBot`, `my_youtube_bot`)
+4. 발급받은 **Bot Token** 복사 (예: `123456789:ABCdefGHIjklMNOpqrsTUVwxyz`)
+5. n8n에서 "Credentials" → "New Credential" → "Telegram" 선택
+6. Bot Token 입력
+
+> 💡 **Tip**: 생성한 봇에게 먼저 `/start` 메시지를 보내야 봇이 응답할 수 있습니다!
+
 ---
 
 ## 사용 방법
@@ -190,14 +204,36 @@ ngrok http --url=my-workflow.ngrok-free.dev 5678
 
 ### 2단계: 워크플로우 실행
 
+**방법 A: n8n에서 직접 실행**
 1. n8n에서 워크플로우 열기
 2. "Test Workflow" 버튼 클릭
 3. 완료될 때까지 기다리기 (약 20-30분)
+
+**방법 B: Telegram으로 실행 (추천)**
+1. 워크플로우를 **Active** 상태로 변경 (오른쪽 상단 토글)
+2. 생성한 Telegram 봇에게 YouTube URL 전송
+   ```
+   https://www.youtube.com/watch?v=VIDEO_ID
+   ```
+   또는
+   ```
+   https://youtu.be/VIDEO_ID
+   ```
+3. 자동으로 처리가 시작됨
+4. 완료되면 Telegram으로 알림 수신:
+   ```
+   ✅ YouTube Recreation 완료!
+   
+   🎬 영상: https://youtube.com/shorts/...
+   💰 비용: $2.26
+   📝 ID: 1
+   ```
 
 ### 3단계: 결과 확인
 
 - Google Sheets에서 Status가 "completed"로 변경됨
 - YouTube에 비공개 영상으로 업로드됨
+- Telegram으로 완료 알림 수신 (Telegram 사용 시)
 
 ---
 
@@ -210,7 +246,7 @@ n8n_auto_short/
 ├── LECTURE_MATERIALS.md         ← 강의 자료 (상세)
 ├── CHEAT_SHEET.md               ← 빠른 참조 시트
 ├── CREDENTIALS_SETUP_GUIDE.md   ← API 키 설정 상세 가이드
-├── YouTube Recreation v2.json   ← n8n 워크플로우 파일 (Import용)
+├── YouTube Recreation.json      ← n8n 워크플로우 파일 (Import용)
 ├── Dockerfile                   ← Docker 설정 파일
 └── docker-compose.yml           ← Docker 실행 설정
 ```
