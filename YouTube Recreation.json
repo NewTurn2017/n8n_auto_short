@@ -1,52 +1,38 @@
 {
-  "updatedAt": "2026-01-30T05:52:46.910Z",
-  "createdAt": "2026-01-28T01:58:41.131Z",
-  "id": "tNJ1JXdp8V9maj7I",
   "name": "YouTube Recreation",
-  "description": null,
-  "active": false,
-  "isArchived": false,
   "nodes": [
     {
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "value": "1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI",
           "mode": "list",
-          "cachedResultName": "YouTube Recreation Queue",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+          "cachedResultName": "YouTube Recreation 내꺼",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "시트1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit#gid=0"
-        },
-        "filtersUI": {
-          "values": [
-            {
-              "lookupColumn": "Status",
-              "lookupValue": "pending"
-            }
-          ]
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit#gid=0"
         },
         "options": {
           "returnFirstMatch": true
         }
       },
-      "id": "n02",
+      "id": "34f6aa22-ff03-46e2-b4f8-5bdd4041ae5e",
       "name": "Get Google Sheets",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -3792,
-        0
+        -2896,
+        544
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sqLIZbCaqoa75ju1",
-          "name": "google account"
+          "id": "se5iEOpwKEYAE0h9",
+          "name": "Google Sheets account(hyuni2020)"
         }
       }
     },
@@ -55,16 +41,17 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "value": "1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI",
           "mode": "list",
-          "cachedResultName": "YouTube Recreation Queue",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+          "cachedResultName": "YouTube Recreation 내꺼",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
-          "cachedResultName": "시트1"
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit#gid=0"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -119,26 +106,6 @@
               "removed": false
             },
             {
-              "id": "Reference_Images",
-              "displayName": "Reference_Images",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Character_Analysis",
-              "displayName": "Character_Analysis",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
               "id": "New_Script",
               "displayName": "New_Script",
               "required": false,
@@ -159,58 +126,8 @@
               "removed": false
             },
             {
-              "id": "Generated_Images",
-              "displayName": "Generated_Images",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Video_Clips",
-              "displayName": "Video_Clips",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Audio_URL",
-              "displayName": "Audio_URL",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Final_Video_URL",
-              "displayName": "Final_Video_URL",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "YouTube_Video_ID",
-              "displayName": "YouTube_Video_ID",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Error_Message",
-              "displayName": "Error_Message",
+              "id": "YouTube_URL_Result",
+              "displayName": "YouTube_URL_Result",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -264,18 +181,18 @@
         },
         "options": {}
       },
-      "id": "n05",
+      "id": "06d4d2df-02ab-4b14-84e7-2738bf2efd1c",
       "name": "Update Status",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -3584,
-        0
+        -2688,
+        544
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sqLIZbCaqoa75ju1",
-          "name": "google account"
+          "id": "se5iEOpwKEYAE0h9",
+          "name": "Google Sheets account(hyuni2020)"
         }
       }
     },
@@ -283,13 +200,13 @@
       "parameters": {
         "jsCode": "const input = $input.first().json;\nlet transcriptText = '';\nlet hasTranscript = false;\nlet detectedLang = 'ko';\n\ntry {\n  // youtube-transcriptor API 응답 형식: [{transcriptionAsText, transcription, ...}]\n  const data = Array.isArray(input) ? input[0] : input;\n  \n  if (data && data.transcriptionAsText) {\n    // 전체 텍스트 사용\n    transcriptText = data.transcriptionAsText\n      .replace(/\\n/g, ' ')\n      .replace(/\\s+/g, ' ')\n      .trim();\n    hasTranscript = transcriptText.length > 0;\n    \n    // 사용 가능한 언어에서 감지\n    if (data.availableLangs && data.availableLangs.length > 0) {\n      detectedLang = data.availableLangs[0];\n    }\n  }\n  // 백업: transcription 배열 사용\n  else if (data && data.transcription && Array.isArray(data.transcription)) {\n    transcriptText = data.transcription\n      .map(item => item.subtitle || item.text || '')\n      .join(' ')\n      .replace(/\\n/g, ' ')\n      .replace(/\\s+/g, ' ')\n      .trim();\n    hasTranscript = transcriptText.length > 0;\n  }\n} catch (e) {\n  transcriptText = '';\n  hasTranscript = false;\n}\n\nreturn [{\n  json: {\n    transcript_text: transcriptText,\n    has_transcript: hasTranscript,\n    detected_language: detectedLang\n  }\n}];"
       },
-      "id": "n07",
+      "id": "7e52b04d-81d8-481f-8106-68f4018ac896",
       "name": "Parse Transcript",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -3008,
-        0
+        -2112,
+        544
       ]
     },
     {
@@ -316,13 +233,13 @@
         },
         "options": {}
       },
-      "id": "n08",
+      "id": "14f68efe-f9fc-4d9d-ba4b-8ab51819dcea",
       "name": "Check Transcript",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -2800,
-        0
+        -1904,
+        544
       ]
     },
     {
@@ -330,17 +247,17 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "value": "1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI",
           "mode": "list",
-          "cachedResultName": "YouTube Recreation Queue",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+          "cachedResultName": "YouTube Recreation 내꺼",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "시트1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mxYYGG78ttIxw3Y9J6BKTosihHOzLcEn-s2oZMSn6Hs/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit#gid=0"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -372,18 +289,18 @@
         },
         "options": {}
       },
-      "id": "n09",
+      "id": "9c134eda-b7c5-4f3c-8e8d-4bdc39e592bd",
       "name": "Update Original Script",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -2544,
-        -16
+        -1648,
+        528
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sqLIZbCaqoa75ju1",
-          "name": "google account"
+          "id": "se5iEOpwKEYAE0h9",
+          "name": "Google Sheets account(hyuni2020)"
         }
       }
     },
@@ -405,31 +322,31 @@
         },
         "options": {}
       },
-      "id": "n10",
+      "id": "1f2d38bf-7699-4ec5-a208-faff3a88e627",
       "name": "No Transcript Error",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2544,
-        176
+        -1648,
+        720
       ]
     },
     {
       "parameters": {
         "promptType": "define",
-        "text": "=다음 유튜브 영상의 원본 트랜스크립트를 분석한 뒤, 한국어 숏폼 나레이션과 이미지 프롬프트를 생성하세요.\n\n원본 트랜스크립트:\n{{ $json.Original_Script }}\n\n작업 지시:\n\n1단계 - 핵심 분석:\n- 원본 영상의 핵심 메시지 1가지만 추출\n- 시청자를 처음 2초 안에 사로잡을 훅 설계\n\n2단계 - 한국어 나레이션 작성 (new_script):\n- **정확히 330-350자** (28초 분량)\n- 글자 수를 반드시 세어서 확인할 것\n- 구어체, 짧은 문장, 임팩트 있는 표현\n- 불필요한 수식어, 반복 표현 제거\n- 핵심만 전달\n\n3단계 - 6개 컷 이미지 프롬프트:\n각 컷마다:\n(1) 주요 피사체와 행동 묘사\n(2) 환경/배경\n(3) 조명/분위기 (cinematic, neon glow 등)\n(4) 카메라 앵글 (close-up, wide shot 등)\n(5) 한글 자막: bold white Korean subtitle at bottom saying '[10자 이내 자막]'\n(6) 끝에 필수: vertical 9:16, ultra detailed, photorealistic, 8K\n\n프롬프트 50단어 이상, 자막은 해당 컷의 핵심 메시지",
+        "text": "=다음 유튜브 영상의 원본 트랜스크립트를 분석한 뒤, 한국어 숏폼 나레이션과 이미지 프롬프트를 생성하세요.\n\n원본 트랜스크립트:\n{{ $json.Original_Script }}\n\n작업 지시:\n\n1단계 - 핵심 분석:\n- 원본 영상의 핵심 메시지 1가지만 추출\n- 시청자를 처음 2초 안에 사로잡을 훅 설계\n\n2단계 - 한국어 나레이션 작성 (new_script):\n- **정확히 330-350자** (28초 분량)\n- 글자 수를 반드시 세어서 확인할 것\n- 구어체, 짧은 문장, 임팩트 있는 표현\n- 불필요한 수식어, 반복 표현 제거\n- 핵심만 전달\n\n3단계 - 6개 컷 이미지 프롬프트:\n각 컷마다:\n(1) 주요 피사체와 행동 묘사\n(2) 환경/배경\n(3) 조명/분위기 (cinematic, neon glow 등)\n(4) 카메라 앵글 (close-up, wide shot 등)\n(5) 한글 자막: bold white Korean subtitle at bottom saying '[10자 이내 자막]'\n(6) 끝에 필수: vertical 9:16, ultra detailed, photorealistic, 8K\n\n프롬프트 50단어 이상, 자막은 해당 컷의 핵심 메시지\n\n현재 시간: {{ $now }}",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=당신은 한국 최정상급 숏폼 크리에이터입니다.\n\n[출력 규칙]\n- 순수 JSON만 출력 (마크다운 코드블록 금지)\n- 문맥을 고려했을때 전문용어의 오타가 있다면 수정해야함.\n- 큰따옴표 안에서 큰따옴표 사용 금지 → 작은따옴표 사용\n- 줄바꿈은 \\n으로\n\n[필수 출력 구조]\nnew_script: 전체 나레이션 (한국어)\ncuts: 6개 객체 배열\n  - cut_number: 1~6\n  - image_prompt: 영어 이미지 프롬프트 (50단어+, 한글 자막 포함)\n  - subtitle_text: 한글 자막 (10자 이내)\n  - duration: 5\n\n[글자 수 규칙 - 최우선]\n- new_script: **정확히 300자 내외**\n- 출력 전 반드시 글자 수 검증\n\n[자막 예시]\n'이게 진짜?' / '충격 반전' / '대박 꿀팁' / '결과는?' / '핵심 포인트' / '지금 바로!'\n\n[절대 금지]\n- cuts 6개 아님\n- image_prompt 50단어 미만\n- subtitle_text 10자 초과\n- new_script 330자 미만 또는 350자 초과"
+          "systemMessage": "=당신은 한국 최정상급 숏폼 크리에이터입니다.\n\n[출력 규칙]\n- 순수 JSON만 출력 (마크다운 코드블록 금지)\n- 문맥을 고려했을때 전문용어의 오타가 있다면 수정해야함.\n- 큰따옴표 안에서 큰따옴표 사용 금지 → 작은따옴표 사용\n- 줄바꿈은 \\n으로\n\n[필수 출력 구조]\nnew_script: 전체 나레이션 (한국어)\ncuts: 6개 객체 배열\n  - cut_number: 1~6\n  - image_prompt: 영어 이미지 프롬프트 (50단어+, 한글 자막 포함)\n  - subtitle_text: 한글 자막 (10자 이내)\n  - duration: 5\n\n[글자 수 규칙 - 최우선]\n- new_script: **정확히 300자 내외**\n- 출력 전 반드시 글자 수 검증\n\n[자막 예시]\n'이게 진짜?' / '충격 반전' / '대박 꿀팁' / '결과는?' / '핵심 포인트' / '지금 바로!'\n\n[절대 금지]\n- cuts 6개 아님\n- image_prompt 50단어 미만\n- subtitle_text 10자 초과\n- new_script 320자 초과"
         }
       },
-      "id": "n11",
+      "id": "cce733ff-71d5-4acd-801a-7ee573017ce0",
       "name": "AI Script Agent",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        -2208,
-        -16
+        -1312,
+        528
       ]
     },
     {
@@ -437,26 +354,26 @@
         "schemaType": "manual",
         "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"new_script\": {\n      \"type\": \"string\",\n      \"description\": \"전체 나레이션 대본 (한국어, 350-400자, 28초 분량)\"\n    },\n    \"cuts\": {\n      \"type\": \"array\",\n      \"description\": \"6개의 컷 배열\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"cut_number\": {\"type\": \"number\", \"description\": \"컷 번호 (1-6)\"},\n          \"image_prompt\": {\"type\": \"string\", \"description\": \"NanoBanana Pro용 영어 이미지 프롬프트 (한글 자막 포함)\"},\n          \"subtitle_text\": {\"type\": \"string\", \"description\": \"이미지에 포함될 한글 자막 (10자 이내)\"},\n          \"duration\": {\"type\": \"number\", \"description\": \"컷 길이 (초)\"}\n        },\n        \"required\": [\"cut_number\", \"image_prompt\", \"subtitle_text\", \"duration\"]\n      }\n    }\n  },\n  \"required\": [\"new_script\", \"cuts\"]\n}"
       },
-      "id": "n13",
+      "id": "2ca8d73a-632e-403b-a2f1-e60191d8c836",
       "name": "Structured Output Parser",
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        -2048,
-        240
+        -1152,
+        768
       ]
     },
     {
       "parameters": {
         "jsCode": "const output = $input.first().json.output || $input.first().json;\nconst newScript = output.new_script || '';\nconst cuts = output.cuts || [];\nconst rowNum = $('Get Google Sheets').first().json.row_number;\nconst id = $('Get Google Sheets').first().json.ID;\nreturn [{\n  json: {\n    New_Script: newScript,\n    Image_Prompts: JSON.stringify(cuts),\n    row_number: rowNum,\n    ID: id,\n    transcript_text: $('Parse Transcript').first().json.transcript_text\n  }\n}];"
       },
-      "id": "n14",
+      "id": "6810f6cf-88a5-49e8-bfb5-0f8ac5f89482",
       "name": "Parse AI Output",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1824,
-        -16
+        -928,
+        528
       ]
     },
     {
@@ -464,15 +381,17 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "value": "1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI",
           "mode": "list",
-          "cachedResultName": "YouTube Recreation Queue"
+          "cachedResultName": "YouTube Recreation 내꺼",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
-          "cachedResultName": "시트1"
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit#gid=0"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -527,26 +446,6 @@
               "removed": false
             },
             {
-              "id": "Reference_Images",
-              "displayName": "Reference_Images",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Character_Analysis",
-              "displayName": "Character_Analysis",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
               "id": "New_Script",
               "displayName": "New_Script",
               "required": false,
@@ -565,58 +464,8 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Generated_Images",
-              "displayName": "Generated_Images",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Video_Clips",
-              "displayName": "Video_Clips",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Audio_URL",
-              "displayName": "Audio_URL",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Final_Video_URL",
-              "displayName": "Final_Video_URL",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "YouTube_Video_ID",
-              "displayName": "YouTube_Video_ID",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "Error_Message",
-              "displayName": "Error_Message",
+              "id": "YouTube_URL_Result",
+              "displayName": "YouTube_URL_Result",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -671,18 +520,18 @@
         },
         "options": {}
       },
-      "id": "n15",
+      "id": "f11c08ed-d908-4ae1-a131-706d39e119be",
       "name": "Update AI Data",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -1616,
-        -16
+        -720,
+        528
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sqLIZbCaqoa75ju1",
-          "name": "google account"
+          "id": "se5iEOpwKEYAE0h9",
+          "name": "Google Sheets account(hyuni2020)"
         }
       }
     },
@@ -690,39 +539,39 @@
       "parameters": {
         "jsCode": "// 랜덤 보이스 선택\nconst voices = [\n  'BIvP0GN1cAtSRTxNHnWS', 'aMSt68OGf4xUZAnLpTU8', 'RILOU7YmBhvwJGDGjNmP',\n  'EkK5I93UQWFDigLMpZcX', 'Z3R5wn05IrDiVCyEkUrK', 'tnSpp4vdxKPjI9w0GnoV',\n  'NNl6r8mD7vthiJatiJt1', 'YOq2y2Up4RgXP2HyXjE5', 'Bj9UqZbhQsanLzgalpEG',\n  'c6SfcYrb2t09NHXiT80T', 'B8gJV1IhpuegLxdpXFOE', 'exsUS4vynmxd379XN4yO',\n  'BpjGufoPiobT79j2vtj4', '2zRM7PkgwBPiau2jvVXc', '1SM7GgM6IMuvQlz2BwM3',\n  'ouL9IsyrSnUkCmfnD02u', '5l5f8iK3YPeGga21rQIX', 'scOwDtmlUjD3prqpp97I',\n  'NOpBlnGInO9m6vDvFkFC', 'BZgkqPqms7Kj9ulSkVzn', 'wo6udizrrtpIxWGp2qJk',\n  'yjJ45q8TVCrtMhEKurxY', 'gU0LNdkMOQCOrPrwtbee', 'DGzg6RaUqxGRTHSBjfgF',\n  'DGTOOUoGpoP6UZ9uSWfA', 'x70vRnQBMBu4FAYhjJbO', 'Sm1seazb4gs7RSlUVw7c',\n  'P1bg08DkjqiVEzOn76yG', 'qDuRKMlYmrm8trt5QyBn', 'kUUTqKQ05NMGulF08DDf',\n  'qXpMhyvQqiRxWQs4qSSB', 'TX3LPaxmHKxFdv7VOQHJ', 'iP95p4xoKVk53GoZ742B',\n  'SOYHLrjzK2X1ezoPC6cr', 'N2lVS1w4EtoT3dr4eOWO', 'FGY2WhTYpPnrIDTdsKH5',\n  'XB0fDUnXU5powFXDhCwa', 'cgSgspJ2msm6clMCkdW9', 'MnUw1cSnpiLoLhpd3Hqp',\n  'kPzsL2i3teMYv0FxEYQ6', 'UgBBYS2sOqTuMpoF3BR0', 'IjnA9kwZJHJ20Fp7Vmy6',\n  'KoQQbl9zjAdLgKZjm8Ol', 'hpp4J3VqNfWAUOO0d1Us', 'pNInz6obpgDQGcFmaJgB',\n  'nPczCjzI2devNBz1zQrb', 'L0Dsvb3SLTyegXwtm47J', 'uYXf8XasLslADfZ2MB4u'\n];\n\nconst randomVoice = voices[Math.floor(Math.random() * voices.length)];\nconst newScript = $json.New_Script;\nconst id = $json.ID;\nconst rowNumber = $json.row_number;\n\n// TTS API 요청 데이터 준비\nconst ttsRequest = {\n  model: 'elevenlabs/text-to-dialogue-v3',\n  input: {\n    stability: 0.5,\n    language_code: 'ko',\n    dialogue: [{\n      text: newScript,\n      voice: randomVoice\n    }]\n  }\n};\n\nreturn [{\n  json: {\n    tts_request: ttsRequest,\n    selected_voice: randomVoice,\n    New_Script: newScript,\n    ID: id,\n    row_number: rowNumber\n  }\n}];"
       },
-      "id": "t01",
+      "id": "f2c04db5-e5e3-4ed3-a913-269f0b52faf9",
       "name": "Prepare TTS Request",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1184,
-        -304
+        -288,
+        240
       ]
     },
     {
       "parameters": {
         "jsCode": "const data = $input.first().json;\nconst cuts = JSON.parse(data.Image_Prompts || '[]');\nconst id = data.ID;\nconst rowNum = data.row_number;\nreturn cuts.map(cut => ({\n  json: {\n    image_prompt: cut.image_prompt,\n    cut_number: cut.cut_number,\n    subtitle_text: cut.subtitle_text,\n    duration: cut.duration || 5,\n    ID: id,\n    row_number: rowNum\n  }\n}));"
       },
-      "id": "i01",
+      "id": "1991ccc9-f914-45cc-b201-7ed40085ee77",
       "name": "Split Cuts to Items",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1408,
-        160
+        -512,
+        704
       ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "id": "i02",
+      "id": "d9159ccb-91c6-48f8-9fe8-6e41c443fbf5",
       "name": "Image Loop",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -1088,
-        240
+        -192,
+        784
       ]
     },
     {
@@ -736,18 +585,18 @@
         "jsonBody": "={{ JSON.stringify({ model: 'nano-banana-pro', input: { prompt: $json.image_prompt, aspect_ratio: '9:16', resolution: '1K' } }) }}",
         "options": {}
       },
-      "id": "i03",
+      "id": "b4c2d2c6-f4ba-40d1-a47d-eba58df88b5e",
       "name": "Create Image Task",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        -896,
-        768
+        0,
+        1312
       ],
       "credentials": {
         "httpHeaderAuth": {
-          "id": "n6k6Wz1TNW99pzWm",
-          "name": "Kie AI Header Auth"
+          "id": "DQZBqD5FGu4I4tPD",
+          "name": "Kie AI"
         }
       }
     },
@@ -789,26 +638,26 @@
         },
         "options": {}
       },
-      "id": "i04",
+      "id": "b3d57ab6-3446-4e05-abaa-b3beb43caed3",
       "name": "Init Image Poll",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -704,
-        832
+        192,
+        1376
       ]
     },
     {
       "parameters": {
         "amount": 15
       },
-      "id": "i05",
+      "id": "9065674c-c4fe-4a24-ade0-8d4e4c7da37a",
       "name": "Wait for Image",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        -496,
-        832
+        400,
+        1376
       ],
       "webhookId": "31d1d0ca-c4bb-4a5f-9f97-7eb3ebed7b60"
     },
@@ -828,18 +677,18 @@
         },
         "options": {}
       },
-      "id": "i06",
+      "id": "d0904259-35fb-4f9e-8014-7e8100e6aedf",
       "name": "Poll Image Status",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        -304,
-        832
+        592,
+        1376
       ],
       "credentials": {
         "httpHeaderAuth": {
-          "id": "n6k6Wz1TNW99pzWm",
-          "name": "Kie AI Header Auth"
+          "id": "DQZBqD5FGu4I4tPD",
+          "name": "Kie AI"
         }
       }
     },
@@ -885,24 +734,24 @@
         },
         "options": {}
       },
-      "id": "i07",
+      "id": "2a7d05ba-c127-4ba3-9e9b-aa35b62ab0fe",
       "name": "Check Image Done",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -112,
-        832
+        784,
+        1376
       ]
     },
     {
       "parameters": {},
-      "id": "i08",
+      "id": "1da0843e-915e-4ae5-b7b7-4020da528147",
       "name": "Wait Image Retry",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        64,
-        832
+        960,
+        1376
       ],
       "webhookId": "9c6d5ab9-3cb1-4093-87f6-e234c7f2fb7b"
     },
@@ -938,52 +787,52 @@
         },
         "options": {}
       },
-      "id": "i09",
+      "id": "143ae615-20ce-48fc-990c-3efe6fd5c924",
       "name": "Store Image",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        112,
-        1056
+        1008,
+        1600
       ]
     },
     {
       "parameters": {
         "jsCode": "const items = $input.all();\nconst images = items.map(item => ({ url: item.json.image_url, cut_number: item.json.cut_number }));\nimages.sort((a, b) => a.cut_number - b.cut_number);\nconst id = items[0].json.ID;\nconst rowNum = items[0].json.row_number;\nreturn [{ json: { image_urls: images.map(i => i.url), Generated_Images: JSON.stringify(images.map(i => i.url)), ID: id, row_number: rowNum } }];"
       },
-      "id": "i10",
+      "id": "aef73860-d662-4bc5-bb66-09742c23b510",
       "name": "Collect All Images",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        32,
-        224
+        928,
+        768
       ]
     },
     {
       "parameters": {
         "jsCode": "const allImages = $input.first().json;\nconst imageUrls = allImages.image_urls || [];\nconst id = allImages.ID;\nconst rowNumber = allImages.row_number;\nreturn imageUrls.map((url, idx) => ({ json: { image_url: url, cut_number: idx + 1, total_cuts: imageUrls.length, ID: id, row_number: rowNumber } }));"
       },
-      "id": "v01",
+      "id": "d08689b9-7764-4c36-9d98-64fee775fb62",
       "name": "Split Images for Video",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        240,
-        224
+        1136,
+        768
       ]
     },
     {
       "parameters": {
         "options": {}
       },
-      "id": "v02",
+      "id": "ba6e6590-51de-4fc7-a419-077e90ee529e",
       "name": "Video Loop",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        496,
-        224
+        1392,
+        768
       ]
     },
     {
@@ -997,18 +846,18 @@
         "jsonBody": "={{ JSON.stringify({ model: 'kling-2.6/image-to-video', input: { prompt: 'subtle natural movement, smooth camera motion, cinematic. IMPORTANT: Keep all text and subtitles from the first frame completely unchanged and fixed. Do not animate, morph, or modify any Korean text.', image_urls: [$json.image_url], sound: false, duration: '5' } }) }}",
         "options": {}
       },
-      "id": "v03",
+      "id": "ac99a1a8-1649-4b83-948d-58970a650442",
       "name": "Create Video Task",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        880,
-        768
+        1776,
+        1312
       ],
       "credentials": {
         "httpHeaderAuth": {
-          "id": "n6k6Wz1TNW99pzWm",
-          "name": "Kie AI Header Auth"
+          "id": "DQZBqD5FGu4I4tPD",
+          "name": "Kie AI"
         }
       }
     },
@@ -1056,26 +905,26 @@
         },
         "options": {}
       },
-      "id": "v04",
+      "id": "61b49861-e061-48e0-a9d1-89904ffc35d4",
       "name": "Init Video Poll",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1072,
-        768
+        1968,
+        1312
       ]
     },
     {
       "parameters": {
         "amount": 90
       },
-      "id": "v05",
+      "id": "6fcebb9e-c5b3-4c46-a3f0-0277db5ae221",
       "name": "Wait for Video",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1296,
-        768
+        2192,
+        1312
       ],
       "webhookId": "85e6b6fa-5a4c-4028-8243-034d2aa0faee"
     },
@@ -1095,18 +944,18 @@
         },
         "options": {}
       },
-      "id": "v06",
+      "id": "3cd9b191-ec7a-4f75-aa2f-b6263718ff6b",
       "name": "Poll Video Status",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        1536,
-        784
+        2432,
+        1328
       ],
       "credentials": {
         "httpHeaderAuth": {
-          "id": "n6k6Wz1TNW99pzWm",
-          "name": "Kie AI Header Auth"
+          "id": "DQZBqD5FGu4I4tPD",
+          "name": "Kie AI"
         }
       }
     },
@@ -1152,13 +1001,13 @@
         },
         "options": {}
       },
-      "id": "v07",
+      "id": "10826312-c960-4774-8ac7-68b89080fa89",
       "name": "Check Video Done",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        1776,
-        784
+        2672,
+        1328
       ]
     },
     {
@@ -1189,26 +1038,26 @@
         },
         "options": {}
       },
-      "id": "v08",
+      "id": "c998ca6c-2c87-4951-a6c8-05b7cd0af461",
       "name": "Store Video",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2480,
-        1072
+        3376,
+        1616
       ]
     },
     {
       "parameters": {
         "amount": 30
       },
-      "id": "v09",
+      "id": "76b149e0-247f-4ea2-8d37-3397a0cd1222",
       "name": "Wait Video Retry",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2016,
-        1040
+        2912,
+        1584
       ],
       "webhookId": "c64dc07b-c290-40d8-b4e1-e7da5ffbcd9e"
     },
@@ -1216,13 +1065,13 @@
       "parameters": {
         "jsCode": "const items = $input.all();\nconst videos = items.map(item => ({ video_url: item.json.video_url, cut_number: item.json.cut_number })).sort((a, b) => a.cut_number - b.cut_number);\nconst videoUrls = videos.map(v => v.video_url);\nconst firstItem = items[0].json;\nreturn [{ json: { video_urls: videoUrls, video_count: videoUrls.length, ID: firstItem.ID, row_number: firstItem.row_number } }];"
       },
-      "id": "v10",
+      "id": "e1bf2153-4e3a-421d-bc50-8572fd666e9b",
       "name": "Collect All Videos",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        832,
-        64
+        1728,
+        608
       ]
     },
     {
@@ -1233,39 +1082,39 @@
           "includeUnpaired": true
         }
       },
-      "id": "a01",
+      "id": "1617dfd9-47f8-4610-88f9-0ec5d71b7049",
       "name": "Merge Branches",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1168,
-        -32
+        2064,
+        512
       ]
     },
     {
       "parameters": {
         "jsCode": "const items = $input.all();\nlet audioPath = '';\nlet videoUrls = [];\nlet id = '';\nlet rowNumber = 0;\n\nfor (const item of items) {\n  if (item.json.audio_path) {\n    audioPath = item.json.audio_path;\n    id = item.json.ID;\n    rowNumber = item.json.row_number;\n  }\n  if (item.json.video_urls) {\n    videoUrls = item.json.video_urls;\n    id = id || item.json.ID;\n    rowNumber = rowNumber || item.json.row_number;\n  }\n}\n\nconst dir = `/tmp/videos/yt_recreate_${id}`;\n\nlet script = `#!/bin/bash\nset -e\nDIR=\"${dir}\"\n\n# 오디오 파일 확인 (이미 29초로 정규화됨)\nif [ ! -f \"${audioPath}\" ]; then\n  echo \"ERROR: Audio file not found at ${audioPath}\"\n  exit 1\nfi\necho \"Audio file exists: ${audioPath}\"\n\n`;\n\n// 비디오 클립 다운로드\nvideoUrls.forEach((url, i) => {\n  script += `echo \"Downloading clip ${i+1}...\"\ncurl -sL \"${url}\" -o $DIR/clip_${i+1}.mp4\n`;\n});\n\n// concat 파일 생성\nscript += `\n> $DIR/concat.txt\n`;\n\nvideoUrls.forEach((_, i) => {\n  script += `echo \"file 'clip_${i+1}.mp4'\" >> $DIR/concat.txt\n`;\n});\n\n// 비디오 합치기 및 오디오 병합\nscript += `\necho \"Concatenating videos...\"\ncd $DIR\nffmpeg -y -f concat -safe 0 -i concat.txt -c copy video_only.mp4\n\necho \"Merging with audio...\"\nffmpeg -y -i video_only.mp4 -i audio.mp3 -c:v copy -c:a aac -shortest final.mp4\n\nFINAL_PATH=\"$(pwd)/final.mp4\"\necho \"Final video created: $FINAL_PATH\"\necho \"$FINAL_PATH\"\n`;\n\nreturn [{ json: { assembly_script: script, dir: dir, ID: id, row_number: rowNumber } }];"
       },
-      "id": "a02",
+      "id": "696a2b88-149d-4fcf-9be8-4c0e7a6c916b",
       "name": "Prepare Assembly",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1392,
-        -32
+        2288,
+        512
       ]
     },
     {
       "parameters": {
         "command": "={{ $json.assembly_script }}"
       },
-      "id": "a03",
+      "id": "86bfb10d-03e1-44ca-b75f-d475d079cabd",
       "name": "Download and Assemble",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        1824,
-        -32
+        2720,
+        512
       ],
       "onError": "continueRegularOutput"
     },
@@ -1295,13 +1144,13 @@
         },
         "options": {}
       },
-      "id": "a04",
+      "id": "f60931ce-3fe9-42a1-9826-4aa03dbbd98d",
       "name": "Set Assembly Result",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2032,
-        -32
+        2928,
+        512
       ]
     },
     {
@@ -1309,26 +1158,26 @@
         "fileSelector": "={{ $json.final_video_path }}",
         "options": {}
       },
-      "id": "u01",
+      "id": "a39d3862-4a76-42ff-b406-2d6f942702d5",
       "name": "Read Final Video",
       "type": "n8n-nodes-base.readWriteFile",
       "typeVersion": 1,
       "position": [
-        2224,
-        -32
+        3120,
+        512
       ]
     },
     {
       "parameters": {
         "jsCode": "const aiOutput = $json.output || $json;\nconst id = $('Set Assembly Result').first().json.ID;\nconst rowNum = $('Set Assembly Result').first().json.row_number;\n\n// AI가 생성한 메타데이터 사용\nconst title = aiOutput.title || '숏폼 영상';\nconst description = aiOutput.description || '';\nconst tags = aiOutput.tags || ['shorts', '숏폼'];\n\n// Read Final Video에서 binary 데이터 가져오기\nconst binaryData = $('Read Final Video').first().binary;\n\nreturn [{\n  json: {\n    title,\n    description,\n    tags,\n    categoryId: '22',\n    privacyStatus: 'private',\n    ID: id,\n    row_number: rowNum\n  },\n  binary: binaryData\n}];"
       },
-      "id": "u02",
+      "id": "58e1db61-01f6-4367-9adb-54cd52945478",
       "name": "Prepare Upload Metadata",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2768,
-        -32
+        3664,
+        512
       ]
     },
     {
@@ -1345,17 +1194,17 @@
           "tags": "={{ $json.tags.join(',') }}"
         }
       },
-      "id": "u03",
+      "id": "c6034b13-133e-4072-818f-fad86236ac56",
       "name": "YouTube Upload",
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        2992,
-        -32
+        3888,
+        512
       ],
       "credentials": {
         "youTubeOAuth2Api": {
-          "id": "aPq64dAuwVbi5oCl",
+          "id": "rEbcBq9rnHVZKYRd",
           "name": "YouTube account"
         }
       }
@@ -1365,13 +1214,13 @@
         "mode": "runOnceForEachItem",
         "jsCode": "// YouTube node returns the video data directly\nconst videoId = $json.uploadId || 'unknown';\n\nlet rowNum, id;\ntry {\n  rowNum = $('Prepare Upload Metadata').first().json.row_number;\n  id = $('Prepare Upload Metadata').first().json.ID;\n} catch (e) {\n  rowNum = 0;\n  id = 'unknown';\n}\n\n// Cost estimation\nconst ttsCost = 0.016;  // Gemini TTS\nconst imageCost = 6 * 0.09;  \nconst videoCost = 6 * 0.275; \nconst aiCost = 0.05;  // AI script generation\nconst totalCost = ttsCost + imageCost + videoCost + aiCost;\n\nreturn {\n  YouTube_Video_ID: videoId,\n  Status: 'completed',\n  Completed_At: new Date().toISOString(),\n  Cost: totalCost.toFixed(3),\n  Final_Video_URL: `https://youtube.com/shorts/${videoId}`,\n  row_number: rowNum,\n  ID: id\n};"
       },
-      "id": "u05",
+      "id": "8ebd9ec5-5b39-40db-949d-ad927703fa04",
       "name": "Calculate Cost",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3216,
-        -32
+        4112,
+        512
       ]
     },
     {
@@ -1379,16 +1228,17 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "value": "1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI",
           "mode": "list",
-          "cachedResultName": "YouTube Recreation Queue",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+          "cachedResultName": "YouTube Recreation 내꺼",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
-          "cachedResultName": "시트1"
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit#gid=0"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -1518,37 +1368,18 @@
         },
         "options": {}
       },
-      "id": "u06",
+      "id": "9ac07909-80ec-405d-a4a8-ce8912596575",
       "name": "Update Final Status",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        3440,
-        -32
+        4336,
+        512
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sqLIZbCaqoa75ju1",
-          "name": "google account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-      "typeVersion": 1,
-      "position": [
-        -2256,
-        224
-      ],
-      "id": "148c937c-d3f4-4fa6-b5ef-a66f690fe74a",
-      "name": "Google Gemini Chat Model",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "7QqXDZnHPciYjAvc",
-          "name": "Google Gemini(PaLM) Api account"
+          "id": "se5iEOpwKEYAE0h9",
+          "name": "Google Sheets account(hyuni2020)"
         }
       }
     },
@@ -1590,13 +1421,13 @@
         },
         "options": {}
       },
-      "id": "i08a",
+      "id": "ff4a7761-dc69-410c-a6e2-cb4b550a1fb2",
       "name": "Increment Image Retry",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        224,
-        832
+        1120,
+        1376
       ]
     },
     {
@@ -1637,13 +1468,13 @@
         },
         "options": {}
       },
-      "id": "v09a",
+      "id": "b9dc4409-901d-4522-98a1-e5cb930e7b6a",
       "name": "Increment Video Retry",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2208,
-        1040
+        3104,
+        1584
       ]
     },
     {
@@ -1671,18 +1502,18 @@
         },
         "options": {}
       },
-      "id": "n06_supadata",
+      "id": "2f67460b-ff20-4e49-9ddd-d6b3ea4c129f",
       "name": "Get Transcript",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        -3216,
-        0
+        -2320,
+        544
       ],
       "credentials": {
         "httpHeaderAuth": {
-          "id": "Q2cneBlpbEFVjJI2",
-          "name": "Rapid api header"
+          "id": "IB0qkWl6LD257pAw",
+          "name": "Youtube Transcriptor Rapidapi"
         }
       },
       "onError": "continueRegularOutput"
@@ -1705,13 +1536,13 @@
         },
         "options": {}
       },
-      "id": "n06_extract",
+      "id": "d7386488-12b4-45a7-9247-748c893bbd42",
       "name": "Extract Video ID",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -3408,
-        0
+        -2512,
+        544
       ]
     },
     {
@@ -1725,18 +1556,18 @@
         "jsonBody": "={{ JSON.stringify($json.tts_request) }}",
         "options": {}
       },
-      "id": "tts01",
+      "id": "891c04b2-0fb0-497c-9578-02b66b9427da",
       "name": "Create TTS Task",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        -976,
-        -304
+        -80,
+        240
       ],
       "credentials": {
         "httpHeaderAuth": {
-          "id": "n6k6Wz1TNW99pzWm",
-          "name": "Kie AI Header Auth"
+          "id": "DQZBqD5FGu4I4tPD",
+          "name": "Kie AI"
         }
       }
     },
@@ -1784,26 +1615,26 @@
         },
         "options": {}
       },
-      "id": "tts02",
+      "id": "83d91b0a-559f-466a-a577-732d3758362e",
       "name": "Init TTS Poll",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -784,
-        -304
+        112,
+        240
       ]
     },
     {
       "parameters": {
         "amount": 10
       },
-      "id": "tts03",
+      "id": "89c0d7c5-b5f4-41df-bea8-27d2723f02c1",
       "name": "Wait for TTS",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        -592,
-        -304
+        304,
+        240
       ],
       "webhookId": "0f281ab1-5e9d-4924-b6e6-4b7d0779a9cd"
     },
@@ -1823,18 +1654,18 @@
         },
         "options": {}
       },
-      "id": "tts04",
+      "id": "efbf4e6b-3c8f-454f-9628-cdd970995f3b",
       "name": "Poll TTS Status",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        -400,
-        -304
+        496,
+        240
       ],
       "credentials": {
         "httpHeaderAuth": {
-          "id": "n6k6Wz1TNW99pzWm",
-          "name": "Kie AI Header Auth"
+          "id": "DQZBqD5FGu4I4tPD",
+          "name": "Kie AI"
         }
       }
     },
@@ -1880,24 +1711,24 @@
         },
         "options": {}
       },
-      "id": "tts05",
+      "id": "697cc7ba-61ec-44f2-89c3-08d24229940b",
       "name": "Check TTS Done",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -176,
-        -304
+        720,
+        240
       ]
     },
     {
       "parameters": {},
-      "id": "tts06",
+      "id": "f96cf94f-0de2-4037-8d91-dab814b9abfd",
       "name": "Wait TTS Retry",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        64,
-        -176
+        960,
+        368
       ],
       "webhookId": "11b0d145-4ff6-48b7-929a-67adb37b6e79"
     },
@@ -1939,13 +1770,13 @@
         },
         "options": {}
       },
-      "id": "tts07",
+      "id": "6e18df67-03fe-4a72-8706-57a134e26455",
       "name": "Increment TTS Retry",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        272,
-        -176
+        1168,
+        368
       ]
     },
     {
@@ -1976,26 +1807,26 @@
         },
         "options": {}
       },
-      "id": "tts08",
+      "id": "5386c973-eaee-4d48-ad32-fec679b5114f",
       "name": "Store TTS Result",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        112,
-        -352
+        1008,
+        192
       ]
     },
     {
       "parameters": {
         "command": "={{ 'mkdir -p /tmp/videos/yt_recreate_' + $json.ID + ' && chmod 777 /tmp/videos/yt_recreate_' + $json.ID }}"
       },
-      "id": "tts09",
+      "id": "1d892b44-5b48-4e18-ae6e-e80bb62599fc",
       "name": "Create Audio Dir",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        272,
-        -352
+        1168,
+        192
       ],
       "onError": "continueRegularOutput"
     },
@@ -2010,13 +1841,13 @@
           }
         }
       },
-      "id": "tts10",
+      "id": "1bfac2ce-1345-47bc-b72e-e2256b4411ef",
       "name": "Download Audio",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        464,
-        -352
+        1360,
+        192
       ]
     },
     {
@@ -2025,13 +1856,13 @@
         "fileName": "=/tmp/videos/yt_recreate_{{ $('Store TTS Result').first().json.ID }}/audio_raw.mp3",
         "options": {}
       },
-      "id": "tts11",
+      "id": "dac5956d-596c-4507-bdb2-af2c658ebc7d",
       "name": "Write TTS Audio",
       "type": "n8n-nodes-base.readWriteFile",
       "typeVersion": 1.1,
       "position": [
-        656,
-        -352
+        1552,
+        192
       ]
     },
     {
@@ -2057,26 +1888,26 @@
         },
         "options": {}
       },
-      "id": "tts12",
+      "id": "aabcc98c-b8b7-4ed5-a4a4-de82b67ed3ad",
       "name": "Set TTS Audio Path",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1024,
-        -352
+        1920,
+        192
       ]
     },
     {
       "parameters": {
         "command": "=#!/bin/bash\nset -e\n\nDIR=\"/tmp/videos/yt_recreate_{{ $('Store TTS Result').first().json.ID }}\"\nINPUT=\"$DIR/audio_raw.mp3\"\nOUTPUT=\"$DIR/audio.mp3\"\nTARGET=29\n\n# Get original duration\nORIG=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"$INPUT\")\necho \"Original: ${ORIG}s\"\n\n# Calculate tempo (orig/target)\nTEMPO=$(echo \"scale=4; $ORIG / $TARGET\" | bc)\necho \"Tempo: $TEMPO\"\n\n# Clamp tempo to 0.5-2.0 range\nif (( $(echo \"$TEMPO < 0.5\" | bc -l) )); then TEMPO=0.5; fi\nif (( $(echo \"$TEMPO > 2.0\" | bc -l) )); then TEMPO=2.0; fi\n\n# Apply speed adjustment\nffmpeg -y -i \"$INPUT\" -filter:a \"atempo=$TEMPO\" -vn \"$OUTPUT\"\n\n# Verify\nFINAL=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"$OUTPUT\")\necho \"Normalized: ${FINAL}s\"\necho \"$OUTPUT\""
       },
-      "id": "tts10b",
+      "id": "d3279e4b-6df0-47f3-9380-d776b0cc9ab9",
       "name": "Normalize Audio Speed",
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        848,
-        -352
+        1744,
+        192
       ]
     },
     {
@@ -2088,13 +1919,13 @@
           "systemMessage": "당신은 YouTube Shorts 최적화 전문가입니다.\n\n[제목 규칙]\n- 40자 이내\n- 숫자/이모지로 시선 끌기\n- '이거 몰랐죠?', '충격', '꿀팁' 등 후킹 워드\n- 물음표로 끝내서 궁금증 유발\n\n[설명글 규칙]\n- 첫 줄: 핵심 가치 제안\n- 중간: 내용 요약 2-3문장\n- 마지막: CTA (좋아요/구독 유도)\n- 해시태그 5개 (#shorts #AI #꿀팁 등)\n\n[태그 규칙]\n- 영상 주제 관련 키워드\n- 한국어 + 영어 혼합\n- 10개 정확히\n\n순수 JSON만 출력하세요."
         }
       },
-      "id": "yt01",
+      "id": "3c7b3e3f-59d7-4280-bc6b-868c277163aa",
       "name": "Generate YouTube Metadata",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        2432,
-        -32
+        3328,
+        512
       ]
     },
     {
@@ -2102,24 +1933,24 @@
         "schemaType": "manual",
         "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\"type\": \"string\", \"description\": \"YouTube Shorts 제목 (40자 이내)\"},\n    \"description\": {\"type\": \"string\", \"description\": \"설명글 (해시태그 포함)\"},\n    \"tags\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}, \"description\": \"태그 10개\"}\n  },\n  \"required\": [\"title\", \"description\", \"tags\"]\n}"
       },
-      "id": "yt02",
+      "id": "16b2f668-bbeb-4564-86cf-5e1d67b13a83",
       "name": "YouTube Metadata Parser",
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        2608,
-        176
+        3504,
+        720
       ]
     },
     {
       "parameters": {},
-      "id": "a02a",
+      "id": "c227c6fc-60fd-4021-9d85-344ec46ae0fb",
       "name": "Limit to One",
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        1600,
-        -32
+        2496,
+        512
       ]
     },
     {
@@ -2128,13 +1959,13 @@
         "height": 616,
         "width": 448
       },
-      "id": "sticky-1",
+      "id": "779ad543-f03d-4638-ad1a-1cc4c09b4ed7",
       "name": "Section 1: Google Sheets",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -3888,
-        -416
+        -2992,
+        128
       ]
     },
     {
@@ -2144,13 +1975,13 @@
         "width": 446,
         "color": 2
       },
-      "id": "sticky-2",
+      "id": "df6952dd-c5cd-488f-9109-bc9c876f4203",
       "name": "Section 2: YouTube Transcript",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -3280,
-        -416
+        -2384,
+        128
       ]
     },
     {
@@ -2160,13 +1991,13 @@
         "width": 428,
         "color": 3
       },
-      "id": "sticky-3",
+      "id": "2e08dead-ee7b-4e53-a30e-94d9b5381ed5",
       "name": "Section 3: AI Agent",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -2304,
-        -416
+        -1408,
+        128
       ]
     },
     {
@@ -2176,13 +2007,13 @@
         "width": 1470,
         "color": 4
       },
-      "id": "sticky-4a",
+      "id": "2a843f86-3f98-469e-a6f1-7b6cb1c3760f",
       "name": "Section 4a: TTS (ElevenLabs)",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1040,
-        -656
+        -144,
+        -112
       ]
     },
     {
@@ -2192,13 +2023,13 @@
         "width": 1324,
         "color": 5
       },
-      "id": "sticky-4b",
+      "id": "87d0ec2d-5e2c-46e6-bb13-c13976cf72a1",
       "name": "Section 4b: Image Generation",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -928,
-        400
+        -32,
+        944
       ]
     },
     {
@@ -2208,14 +2039,15 @@
         "width": 1900,
         "color": 6
       },
-      "id": "sticky-4c",
+      "id": "3fa751a5-8a15-40aa-9a33-ebef3afcdfb1",
       "name": "Section 4c: Video Generation",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        816,
-        400
-      ]
+        1712,
+        944
+      ],
+      "disabled": true
     },
     {
       "parameters": {
@@ -2223,13 +2055,13 @@
         "height": 704,
         "width": 436
       },
-      "id": "sticky-5",
+      "id": "f77a8a88-9042-481a-bbf9-a29b50fc621c",
       "name": "Section 5: FFMPEG Assembly",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1744,
-        -512
+        2640,
+        32
       ]
     },
     {
@@ -2239,13 +2071,13 @@
         "width": 800,
         "color": 2
       },
-      "id": "sticky-6",
+      "id": "91cf6697-81f3-4335-847d-7a47fe14f322",
       "name": "Section 6: YouTube Upload",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2368,
-        -544
+        3264,
+        0
       ]
     },
     {
@@ -2258,10 +2090,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        784,
-        -592
+        1680,
+        -48
       ],
-      "id": "b986630d-d594-4950-89f1-f18c06c1cee8",
+      "id": "8de1f505-72f8-484c-9d92-74e25f36293f",
       "name": "Sticky Note"
     },
     {
@@ -2269,17 +2101,17 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "value": "1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI",
           "mode": "list",
-          "cachedResultName": "YouTube Recreation Queue",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+          "cachedResultName": "YouTube Recreation 내꺼",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "시트1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit#gid=0"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -2398,18 +2230,18 @@
         },
         "options": {}
       },
-      "id": "46e52a3a-b10e-4d01-9c8d-db8a25c726cd",
+      "id": "ac9638d3-f98c-4e21-8280-d4658f5f43cb",
       "name": "Update Error",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -2544,
-        336
+        -1648,
+        880
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sqLIZbCaqoa75ju1",
-          "name": "google account"
+          "id": "se5iEOpwKEYAE0h9",
+          "name": "Google Sheets account(hyuni2020)"
         }
       }
     },
@@ -2423,16 +2255,16 @@
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.2,
       "position": [
-        -4336,
-        0
+        -3488,
+        544
       ],
-      "id": "56f60c60-6005-4087-8f42-4dc23fc1709d",
+      "id": "7e7157cb-f6d2-4d02-bd61-d9ad66c17022",
       "name": "Telegram Trigger",
       "webhookId": "d21efb8c-d0a1-42f6-978b-94804019c5d4",
       "credentials": {
         "telegramApi": {
-          "id": "cFOYzHQ17VE86w2P",
-          "name": "Telegram account"
+          "id": "P1dlfM9j3EQlaCnK",
+          "name": "666bot"
         }
       }
     },
@@ -2441,17 +2273,17 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "value": "1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI",
           "mode": "list",
-          "cachedResultName": "YouTube Recreation Queue",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+          "cachedResultName": "YouTube Recreation 내꺼",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "시트1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_W_yEORn-pucuXnSAVw9QWFPsloAQ-7PYso12isFDCI/edit#gid=0"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -2561,40 +2393,62 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        -4128,
-        0
+        -3232,
+        544
       ],
-      "id": "1ae91131-7d20-4aae-9027-0e6f74520136",
+      "id": "f4d90497-70d0-4ae6-966b-3693f9a679dc",
       "name": "Append row in sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sqLIZbCaqoa75ju1",
-          "name": "google account"
+          "id": "se5iEOpwKEYAE0h9",
+          "name": "Google Sheets account(hyuni2020)"
         }
       }
     },
     {
-      "id": "telegram_complete",
-      "name": "Send Completion Alert",
-      "type": "n8n-nodes-base.telegram",
-      "typeVersion": 1.2,
-      "position": [
-        3664,
-        -32
-      ],
       "parameters": {
         "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
         "text": "=✅ YouTube Recreation 완료!\n\n🎬 영상: {{ $json.Final_Video_URL }}\n💰 비용: ${{ $json.Cost }}\n📝 ID: {{ $json.ID }}",
         "additionalFields": {}
       },
+      "id": "66222090-9e74-478a-a252-39dcc84b0c87",
+      "name": "Send Completion Alert",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        4560,
+        512
+      ],
+      "webhookId": "a5d3bf8f-ca4b-465f-9d5e-38a912ba1293",
       "credentials": {
         "telegramApi": {
-          "id": "cFOYzHQ17VE86w2P",
-          "name": "Telegram account"
+          "id": "P1dlfM9j3EQlaCnK",
+          "name": "666bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3-flash-preview",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -1344,
+        768
+      ],
+      "id": "7c35c65c-a622-4616-94b0-80a79cbe0bfb",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "5W1q78mvVY4Y1WAC",
+          "name": "Google Gemini(PaLM) Api account"
         }
       }
     }
   ],
+  "pinData": {},
   "connections": {
     "Get Google Sheets": {
       "main": [
@@ -2977,22 +2831,6 @@
         ]
       ]
     },
-    "Google Gemini Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "AI Script Agent",
-            "type": "ai_languageModel",
-            "index": 0
-          },
-          {
-            "node": "Generate YouTube Metadata",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "YouTube Upload": {
       "main": [
         [
@@ -3340,74 +3178,29 @@
           }
         ]
       ]
-    }
-  },
-  "settings": {
-    "executionOrder": "v1",
-    "callerPolicy": "workflowsFromSameOwner",
-    "availableInMCP": false
-  },
-  "staticData": null,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
-  "pinData": {},
-  "versionId": "878d21fd-0e25-49ca-861f-a701936565c4",
-  "activeVersionId": null,
-  "versionCounter": 577,
-  "triggerCount": 0,
-  "shared": [
-    {
-      "updatedAt": "2026-01-28T01:58:41.137Z",
-      "createdAt": "2026-01-28T01:58:41.137Z",
-      "role": "workflow:owner",
-      "workflowId": "tNJ1JXdp8V9maj7I",
-      "projectId": "6eGC3v3T4sSe9KYf",
-      "project": {
-        "updatedAt": "2026-01-27T05:08:06.444Z",
-        "createdAt": "2026-01-27T05:03:25.107Z",
-        "id": "6eGC3v3T4sSe9KYf",
-        "name": "Genie Jang <genie@codeiwithgenie.com>",
-        "type": "personal",
-        "icon": null,
-        "description": null,
-        "creatorId": "7c819111-a148-4e56-a1f9-d04aa373c1f9",
-        "projectRelations": [
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
           {
-            "updatedAt": "2026-01-27T05:03:25.107Z",
-            "createdAt": "2026-01-27T05:03:25.107Z",
-            "userId": "7c819111-a148-4e56-a1f9-d04aa373c1f9",
-            "projectId": "6eGC3v3T4sSe9KYf",
-            "user": {
-              "updatedAt": "2026-01-30T02:01:31.000Z",
-              "createdAt": "2026-01-27T05:03:24.889Z",
-              "id": "7c819111-a148-4e56-a1f9-d04aa373c1f9",
-              "email": "genie@codewithgenie.com",
-              "firstName": "Genie",
-              "lastName": "Jang",
-              "personalizationAnswers": {
-                "version": "v4",
-                "personalization_survey_submitted_at": "2026-01-27T05:08:18.264Z",
-                "personalization_survey_n8n_version": "2.4.6",
-                "companySize": "<20",
-                "companyType": "saas",
-                "role": "business-owner",
-                "reportedSource": "google"
-              },
-              "settings": {
-                "userActivated": false,
-                "easyAIWorkflowOnboarded": true
-              },
-              "disabled": false,
-              "mfaEnabled": false,
-              "lastActiveAt": "2026-01-30",
-              "isPending": false
-            }
+            "node": "AI Script Agent",
+            "type": "ai_languageModel",
+            "index": 0
           }
         ]
-      }
+      ]
     }
-  ],
-  "tags": [],
-  "activeVersion": null
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "b3024aa5-49c9-4911-a548-9139f3af888c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "72ea41ef88273e8282a4690356cbfa865dd33f84587a7c9f754982448b21861d"
+  },
+  "id": "sPrffjNinBgCzSsLjWWy2",
+  "tags": []
 }
