@@ -37,10 +37,12 @@
 | 항목 | 설명 | 다운로드 링크 |
 |------|------|--------------|
 | Docker Desktop | n8n을 실행하기 위한 프로그램 | [Mac](https://docs.docker.com/desktop/setup/install/mac-install/) / [Windows](https://docs.docker.com/desktop/setup/install/windows-install/) |
+| ngrok | 외부 접속 URL 생성 | [ngrok.com](https://ngrok.com/download) |
 
 ### 필요한 계정 (무료/유료)
 | 서비스 | 용도 | 비고 |
 |--------|------|------|
+| ngrok | 외부 접속 URL (Webhook용) | 무료 (고정 도메인 1개) |
 | Google 계정 | Google Sheets, YouTube | 무료 |
 | RapidAPI | 유튜브 자막 추출 | 무료 티어 있음 |
 | Kie AI | 이미지/영상/음성 생성 | 유료 (종량제) |
@@ -48,17 +50,31 @@
 
 ---
 
-## 설치 방법 (5분)
+## 설치 방법 (10분)
 
 ### 방법 1: AI 자동 설치 (추천)
 
-Claude나 ChatGPT에게 `N8N_INSTALL.md` 파일을 주고 설치를 요청하세요:
+Claude나 ChatGPT에게 `N8N_INSTALL.md` 파일과 **ngrok 고정 도메인**을 함께 제공하고 설치를 요청하세요:
 
 ```
 이 문서를 보고 n8n을 설치해주세요.
+제 ngrok 고정 도메인은 xxx-yyy-zzz.ngrok-free.app 입니다.
 ```
 
+AI가 자동으로 ngrok URL을 docker-compose.yml에 포함시켜 설정합니다.
+
 ### 방법 2: 수동 설치
+
+**0단계: ngrok 가입 및 고정 도메인 받기**
+
+1. https://ngrok.com 가입
+2. ngrok 설치: `brew install ngrok` (Mac) 또는 [다운로드](https://ngrok.com/download) (Windows)
+3. 인증 토큰 설정:
+   ```bash
+   ngrok config add-authtoken <대시보드에서_복사한_토큰>
+   ```
+4. [Dashboard → Domains](https://dashboard.ngrok.com/domains)에서 고정 도메인 생성
+5. 생성된 도메인 메모 (예: `my-workflow.ngrok-free.app`)
 
 **1단계: 폴더 만들기**
 
@@ -74,9 +90,10 @@ mkdir C:\n8n-self
 cd C:\n8n-self
 ```
 
-**2단계: 파일 복사하기**
+**2단계: 파일 복사 및 수정**
 
-이 저장소의 `Dockerfile`과 `docker-compose.yml` 파일을 위에서 만든 폴더에 복사합니다.
+1. 이 저장소의 `Dockerfile`과 `docker-compose.yml` 파일을 복사
+2. `docker-compose.yml`에서 `<YOUR_NGROK_URL>`을 본인 도메인으로 수정
 
 **3단계: 실행하기**
 
@@ -88,9 +105,23 @@ docker compose build --no-cache
 docker compose up -d
 ```
 
-**4단계: 접속하기**
+**4단계: ngrok 실행 (새 터미널)**
 
-브라우저에서 열기: **http://localhost:5678**
+```bash
+ngrok http --url=<본인_ngrok_도메인> 5678
+```
+
+예시:
+```bash
+ngrok http --url=my-workflow.ngrok-free.app 5678
+```
+
+> **중요**: n8n 사용 중에는 ngrok 터미널을 계속 열어두세요!
+
+**5단계: 접속하기**
+
+- 로컬: **http://localhost:5678**
+- 외부: **https://본인_ngrok_도메인**
 
 처음 접속하면 계정을 만들라고 합니다. 이름, 이메일, 비밀번호를 입력하세요.
 
@@ -199,8 +230,23 @@ n8n_auto_short/
 ### Q: Docker Desktop이 뭔가요?
 A: 컴퓨터 안에 작은 컴퓨터를 만들어주는 프로그램이에요. n8n을 깔끔하게 실행하기 위해 필요합니다.
 
+### Q: ngrok이 뭔가요?
+A: 여러분 컴퓨터를 인터넷에 공개해주는 터널 서비스예요. 외부 서비스(YouTube, Google 등)가 여러분 컴퓨터의 n8n에 데이터를 보내려면 필요합니다.
+
+### Q: ngrok을 매번 실행해야 하나요?
+A: 네, n8n을 사용할 때마다 ngrok도 함께 실행해야 해요. 터미널 창을 열어두세요.
+
+### Q: ngrok 무료로 충분한가요?
+A: 네! 무료 플랜으로 고정 도메인 1개를 받을 수 있고, 이 강의에는 충분합니다.
+
 ### Q: n8n이 안 켜져요
 A: Docker Desktop이 실행 중인지 확인하세요. 작업 표시줄에 고래 아이콘이 있어야 해요.
+
+### Q: 외부 접속이 안 돼요 (ngrok URL)
+A: 
+1. ngrok이 실행 중인지 확인 (터미널 창이 열려 있어야 함)
+2. ngrok URL이 docker-compose.yml에 정확히 입력되었는지 확인
+3. n8n 재시작: `docker compose restart`
 
 ### Q: 영상이 안 만들어져요
 A: 
@@ -230,6 +276,9 @@ A: 이미지 개수를 6개에서 4개로 줄이거나, 비디오 길이를 5초
 # n8n 시작
 docker compose up -d
 
+# ngrok 시작 (새 터미널에서)
+ngrok http --url=<본인_ngrok_도메인> 5678
+
 # n8n 중지
 docker compose down
 
@@ -241,6 +290,12 @@ docker compose down
 docker compose build --no-cache
 docker compose up -d
 ```
+
+### 매번 실행할 때 순서
+1. Docker Desktop 실행 확인
+2. `docker compose up -d` (n8n 시작)
+3. `ngrok http --url=<본인_URL> 5678` (새 터미널에서)
+4. 브라우저로 접속
 
 ---
 

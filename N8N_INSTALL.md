@@ -10,7 +10,8 @@
 1. **반드시 Docker 기반으로 설치합니다.** npm 글로벌 설치는 사용하지 않습니다.
 2. **n8n 공식 이미지(`docker.n8n.io/n8nio/n8n`)를 사용하지 않습니다.** 이 이미지는 패키지 매니저(apk)가 제거된 Hardened Alpine이라 ffmpeg 등 추가 도구 설치가 불가능합니다.
 3. **`node:20-alpine`을 베이스 이미지로 사용하고, n8n을 npm으로 설치합니다.** 이렇게 하면 apk로 ffmpeg, python3, yt-dlp를 자유롭게 설치할 수 있습니다.
-4. 사용자에게 터미널 명령어를 직접 보여주고 실행을 요청하세요.
+4. **ngrok을 먼저 설정하여 고정 URL을 받아옵니다.** Webhook 수신을 위해 필수입니다.
+5. 사용자에게 터미널 명령어를 직접 보여주고 실행을 요청하세요.
 
 ---
 
@@ -35,18 +36,102 @@ docker --version
 
 **Docker가 있으면 STEP 1로 진행.**
 
-### 질문 2: 설치 폴더 위치
+---
+
+## STEP 1: ngrok 설정 (외부 접속 URL 받기)
+
+n8n에서 Webhook을 사용하려면 외부에서 접근 가능한 공개 URL이 필요합니다.
+ngrok을 사용하면 로컬 컴퓨터에 고정된 공개 URL을 부여받을 수 있습니다.
+
+### 1-1. ngrok 가입
+
+1. https://ngrok.com 접속
+2. **Sign up** 클릭하여 계정 생성 (Google/GitHub 로그인 가능)
+3. 로그인 후 **Dashboard**로 이동
+
+### 1-2. ngrok 설치
+
+#### Mac
+```bash
+# Homebrew로 설치 (권장)
+brew install ngrok
+
+# 또는 직접 다운로드
+# https://ngrok.com/download 에서 Mac 버전 다운로드 후 압축 해제
+```
+
+#### Windows
+```powershell
+# 1. https://ngrok.com/download 에서 Windows 버전 다운로드
+# 2. 압축 해제
+# 3. ngrok.exe를 C:\ngrok\ 폴더에 저장
+# 4. 시스템 환경 변수 PATH에 C:\ngrok\ 추가 (선택사항)
+```
+
+### 1-3. ngrok 인증 토큰 설정
+
+1. ngrok Dashboard에서 **Your Authtoken** 메뉴 클릭
+   - URL: https://dashboard.ngrok.com/get-started/your-authtoken
+2. 토큰을 복사합니다
+
+터미널에서 실행:
+```bash
+ngrok config add-authtoken <복사한_토큰>
+```
+
+### 1-4. 고정 도메인(Static Domain) 받기
+
+무료 계정도 **1개의 고정 도메인**을 받을 수 있습니다.
+
+1. ngrok Dashboard → **Domains** 메뉴
+   - URL: https://dashboard.ngrok.com/domains
+2. **Create Domain** 또는 **+ New Domain** 클릭
+3. 자동으로 생성된 도메인 확인 (예: `your-name-random.ngrok-free.app`)
+4. **이 도메인을 메모해두세요!** (나중에 docker-compose.yml에 사용)
+
+### 1-5. ngrok 테스트 실행
+
+고정 도메인으로 ngrok 실행:
+```bash
+ngrok http --url=<본인의_ngrok_도메인> 5678
+```
+
+**예시:**
+```bash
+ngrok http --url=my-awesome-workflow.ngrok-free.app 5678
+```
+
+**성공 시 출력 예시:**
+```
+Session Status                online
+Account                       your-email@example.com
+Version                       3.x.x
+Region                        Japan (jp)
+Forwarding                    https://my-awesome-workflow.ngrok-free.app -> http://localhost:5678
+```
+
+> **참고**: n8n이 아직 실행되지 않았으므로 `502 Bad Gateway`가 뜨는 것은 정상입니다.
+> ngrok 연결 자체가 성공했는지만 확인하세요.
+
+### 1-6. 질문: ngrok URL 확인
+
+```
+ngrok 고정 도메인 URL을 알려주세요.
+예시: https://my-awesome-workflow.ngrok-free.app
+```
+
+사용자가 제공한 URL을 STEP 3에서 docker-compose.yml에 넣습니다.
+
+---
+
+## STEP 2: 설치 폴더 생성
+
+### 질문: 설치 폴더 위치
 
 ```
 n8n 설치 폴더를 어디에 만들까요?
 기본값: ~/n8n-self (Mac) 또는 C:\n8n-self (Windows)
 ```
-
-사용자가 원하는 경로가 있으면 해당 경로를 사용합니다.
-
----
-
-## STEP 1: 설치 폴더 생성
 
 ### Mac / Linux
 ```bash
@@ -62,7 +147,7 @@ cd C:\n8n-self
 
 ---
 
-## STEP 2: Dockerfile 생성
+## STEP 3: Dockerfile 생성
 
 아래 내용으로 `Dockerfile`을 생성하세요.
 
@@ -128,7 +213,9 @@ CMD ["sh", "-c", "umask 000 && n8n"]
 
 ---
 
-## STEP 3: docker-compose.yml 생성
+## STEP 4: docker-compose.yml 생성
+
+**중요**: `<YOUR_NGROK_URL>` 부분을 STEP 1에서 받은 ngrok 고정 도메인으로 교체하세요!
 
 ### Mac / Linux
 ```bash
@@ -144,6 +231,8 @@ services:
       TZ: 'Asia/Seoul'
       NODES_EXCLUDE: '[]'
       N8N_RESTRICT_FILE_ACCESS_TO: '/tmp/videos'
+      WEBHOOK_URL: 'https://<YOUR_NGROK_URL>'
+      N8N_EDITOR_BASE_URL: 'https://<YOUR_NGROK_URL>'
     volumes:
       - n8n-self-data:/home/node/.n8n
       - ./data/videos:/tmp/videos
@@ -153,6 +242,12 @@ volumes:
   n8n-self-data:
 EOF
 mkdir -p data/videos
+```
+
+**예시** (ngrok URL이 `my-awesome-workflow.ngrok-free.app`인 경우):
+```yaml
+WEBHOOK_URL: 'https://my-awesome-workflow.ngrok-free.app'
+N8N_EDITOR_BASE_URL: 'https://my-awesome-workflow.ngrok-free.app'
 ```
 
 ### Windows (PowerShell)
@@ -169,6 +264,8 @@ services:
       TZ: 'Asia/Seoul'
       NODES_EXCLUDE: '[]'
       N8N_RESTRICT_FILE_ACCESS_TO: '/tmp/videos'
+      WEBHOOK_URL: 'https://<YOUR_NGROK_URL>'
+      N8N_EDITOR_BASE_URL: 'https://<YOUR_NGROK_URL>'
     volumes:
       - n8n-self-data:/home/node/.n8n
       - ./data/videos:/tmp/videos
@@ -188,6 +285,8 @@ mkdir data\videos
 | `TZ` | `Asia/Seoul` | 컨테이너 시스템 시간대 |
 | `NODES_EXCLUDE` | `[]` | n8n v2.0+에서 기본 비활성화된 Execute Command 노드를 활성화 |
 | `N8N_RESTRICT_FILE_ACCESS_TO` | `/tmp/videos` | Read/Write Files 노드가 접근할 수 있는 경로 (보안 화이트리스트) |
+| `WEBHOOK_URL` | ngrok URL | Webhook이 사용할 외부 접속 URL |
+| `N8N_EDITOR_BASE_URL` | ngrok URL | n8n 에디터의 기본 URL |
 
 ### 볼륨 설명
 
@@ -198,7 +297,7 @@ mkdir data\videos
 
 ---
 
-## STEP 4: 빌드 및 실행
+## STEP 5: 빌드 및 실행
 
 ### 빌드 (최초 1회, 약 2~3분 소요)
 ```bash
@@ -228,9 +327,25 @@ docker compose up -d
 
 ---
 
-## STEP 5: 확인
+## STEP 6: ngrok 실행 및 확인
 
-### 5-1. 도구 작동 확인
+### 6-1. ngrok 실행
+
+**새 터미널 창**을 열고 ngrok을 실행합니다:
+
+```bash
+ngrok http --url=<본인의_ngrok_도메인> 5678
+```
+
+**예시:**
+```bash
+ngrok http --url=my-awesome-workflow.ngrok-free.app 5678
+```
+
+> **중요**: ngrok은 n8n을 사용하는 동안 계속 실행 상태로 유지해야 합니다.
+> 터미널 창을 닫으면 외부 접속이 끊어집니다.
+
+### 6-2. 도구 작동 확인
 ```bash
 docker compose exec n8n ffmpeg -version
 docker compose exec n8n yt-dlp --version
@@ -239,13 +354,22 @@ docker compose exec n8n n8n --version
 
 3개 모두 버전 정보가 출력되면 성공입니다.
 
-### 5-2. 브라우저 접속
+### 6-3. 브라우저 접속
+
+**로컬 접속:**
 ```
 http://localhost:5678
 ```
 
+**외부 접속 (ngrok):**
+```
+https://<본인의_ngrok_도메인>
+```
+
 최초 접속 시 **Owner 계정 생성 화면**이 나타납니다.
 이름, 이메일, 비밀번호를 입력하여 관리자 계정을 만드세요.
+
+> **참고**: ngrok 무료 버전 사용 시 첫 접속에 "Visit Site" 버튼이 나타날 수 있습니다. 클릭하면 됩니다.
 
 ---
 
@@ -258,6 +382,36 @@ http://localhost:5678
 | `docker compose logs -f` | 실시간 로그 확인 |
 | `docker compose restart` | 재시작 |
 | `docker compose build --no-cache` | 이미지 재빌드 (업데이트 시) |
+| `ngrok http --url=<URL> 5678` | ngrok 실행 (외부 접속용) |
+
+---
+
+## ngrok 자동 실행 설정 (선택사항)
+
+매번 ngrok을 수동으로 실행하기 번거롭다면 자동 실행을 설정할 수 있습니다.
+
+### Mac (launchd)
+
+1. 스크립트 파일 생성:
+```bash
+cat > ~/n8n-self/start-ngrok.sh << 'EOF'
+#!/bin/bash
+ngrok http --url=<본인의_ngrok_도메인> 5678
+EOF
+chmod +x ~/n8n-self/start-ngrok.sh
+```
+
+2. 컴퓨터 시작 시 자동 실행되도록 설정하거나, 필요할 때 `~/n8n-self/start-ngrok.sh` 실행
+
+### Windows (배치 파일)
+
+1. `C:\n8n-self\start-ngrok.bat` 파일 생성:
+```batch
+@echo off
+ngrok http --url=<본인의_ngrok_도메인> 5678
+```
+
+2. 필요할 때 더블클릭으로 실행
 
 ---
 
@@ -336,7 +490,16 @@ environment:
 docker compose down && docker compose up -d
 ```
 
-**참고:** Execute Command 노드로 `touch` 명령이 성공해도 Read/Write Files 노드는 별도의 보안 검사를 수행하므로 이 환경변수가 필수입니다.
+### ngrok "ERR_NGROK_3200" 또는 인증 오류
+ngrok authtoken이 설정되지 않았습니다.
+```bash
+ngrok config add-authtoken <your_authtoken>
+```
+
+### ngrok "ERR_NGROK_4018" 도메인 오류
+- 고정 도메인 URL을 정확히 입력했는지 확인
+- ngrok Dashboard에서 도메인이 활성 상태인지 확인
+- `https://` 없이 도메인만 입력해야 합니다 (예: `my-name.ngrok-free.app`)
 
 ### 데이터 백업
 n8n 데이터는 Docker 볼륨 `n8n-self-data`에 저장됩니다.
@@ -352,56 +515,30 @@ docker run --rm -v n8n-self_n8n-self-data:/data -v $(pwd):/backup alpine \
 
 ---
 
-## 외부 접속이 필요한 경우 (Webhook 수신 등)
-
-로컬 n8n은 `localhost:5678`로만 접속 가능합니다.
-외부 서비스(Telegram, Stripe 등)에서 Webhook을 보내려면 **공개 URL**이 필요합니다.
-
-### ngrok 설치
-- https://ngrok.com/download 에서 다운로드
-- 또는 Mac: `brew install ngrok`
-
-### ngrok 실행
-```bash
-ngrok http 5678
-```
-
-터미널에 아래와 같은 URL이 출력됩니다:
-```
-Forwarding  https://xxxx-yyyy-zzzz.ngrok-free.app → http://localhost:5678
-```
-
-### docker-compose.yml에 URL 추가
-
-출력된 URL을 `<YOUR_NGROK_URL>` 자리에 넣으세요:
-
-```yaml
-environment:
-  GENERIC_TIMEZONE: 'Asia/Seoul'
-  TZ: 'Asia/Seoul'
-  NODES_EXCLUDE: '[]'
-  N8N_RESTRICT_FILE_ACCESS_TO: '/tmp/videos'
-  WEBHOOK_URL: '<YOUR_NGROK_URL>'
-  N8N_EDITOR_BASE_URL: '<YOUR_NGROK_URL>'
-```
-
-예시: `https://moving-owl-urgently.ngrok-free.app`
-
-### 적용
-```bash
-docker compose down && docker compose up -d
-```
-
-이후 Webhook URL이 `<YOUR_NGROK_URL>/webhook/...` 형태로 자동 생성됩니다.
-
----
-
 ## 설치 완료 후 체크리스트
 
+- [ ] Docker Desktop 설치 및 실행 중
+- [ ] ngrok 가입 및 고정 도메인 발급 완료
+- [ ] ngrok authtoken 설정 완료
+- [ ] docker-compose.yml에 ngrok URL 설정 완료
+- [ ] `docker compose build` 성공
+- [ ] `docker compose up -d` 성공
+- [ ] ngrok 실행 중 (`ngrok http --url=<URL> 5678`)
 - [ ] `http://localhost:5678` 접속 확인
+- [ ] `https://<ngrok-URL>` 외부 접속 확인
 - [ ] Owner 계정 생성 완료
 - [ ] `ffmpeg -version` 정상 출력
 - [ ] `yt-dlp --version` 정상 출력
-- [ ] (선택) ngrok으로 외부 접속 URL 설정
 
-모든 항목이 확인되면 n8n 설치가 완료된 것입니다.
+모든 항목이 확인되면 n8n 설치가 완료된 것입니다!
+
+---
+
+## 요약: 실행 순서
+
+매번 n8n을 사용할 때:
+
+1. **Docker Desktop 실행** (자동 시작 설정 안 했다면)
+2. **n8n 시작**: `docker compose up -d` (n8n-self 폴더에서)
+3. **ngrok 시작**: `ngrok http --url=<본인_URL> 5678` (새 터미널에서)
+4. **브라우저 접속**: `https://<본인_ngrok_URL>` 또는 `http://localhost:5678`
