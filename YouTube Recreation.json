@@ -1,5 +1,11 @@
 {
-  "name": "YouTube Recreation v2",
+  "updatedAt": "2026-01-30T05:52:46.910Z",
+  "createdAt": "2026-01-28T01:58:41.131Z",
+  "id": "tNJ1JXdp8V9maj7I",
+  "name": "YouTube Recreation",
+  "description": null,
+  "active": false,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -414,7 +420,7 @@
         "text": "=다음 유튜브 영상의 원본 트랜스크립트를 분석한 뒤, 한국어 숏폼 나레이션과 이미지 프롬프트를 생성하세요.\n\n원본 트랜스크립트:\n{{ $json.Original_Script }}\n\n작업 지시:\n\n1단계 - 핵심 분석:\n- 원본 영상의 핵심 메시지 1가지만 추출\n- 시청자를 처음 2초 안에 사로잡을 훅 설계\n\n2단계 - 한국어 나레이션 작성 (new_script):\n- **정확히 330-350자** (28초 분량)\n- 글자 수를 반드시 세어서 확인할 것\n- 구어체, 짧은 문장, 임팩트 있는 표현\n- 불필요한 수식어, 반복 표현 제거\n- 핵심만 전달\n\n3단계 - 6개 컷 이미지 프롬프트:\n각 컷마다:\n(1) 주요 피사체와 행동 묘사\n(2) 환경/배경\n(3) 조명/분위기 (cinematic, neon glow 등)\n(4) 카메라 앵글 (close-up, wide shot 등)\n(5) 한글 자막: bold white Korean subtitle at bottom saying '[10자 이내 자막]'\n(6) 끝에 필수: vertical 9:16, ultra detailed, photorealistic, 8K\n\n프롬프트 50단어 이상, 자막은 해당 컷의 핵심 메시지",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=당신은 한국 최정상급 숏폼 크리에이터입니다.\n\n[출력 규칙]\n- 순수 JSON만 출력 (마크다운 코드블록 금지)\n- 큰따옴표 안에서 큰따옴표 사용 금지 → 작은따옴표 사용\n- 줄바꿈은 \\n으로\n\n[필수 출력 구조]\nnew_script: 전체 나레이션 (한국어)\ncuts: 6개 객체 배열\n  - cut_number: 1~6\n  - image_prompt: 영어 이미지 프롬프트 (50단어+, 한글 자막 포함)\n  - subtitle_text: 한글 자막 (10자 이내)\n  - duration: 5\n\n[글자 수 규칙 - 최우선]\n- new_script: **정확히 300자 내외**\n- 출력 전 반드시 글자 수 검증\n\n[자막 예시]\n'이게 진짜?' / '충격 반전' / '대박 꿀팁' / '결과는?' / '핵심 포인트' / '지금 바로!'\n\n[절대 금지]\n- cuts 6개 아님\n- image_prompt 50단어 미만\n- subtitle_text 10자 초과\n- new_script 330자 미만 또는 350자 초과"
+          "systemMessage": "=당신은 한국 최정상급 숏폼 크리에이터입니다.\n\n[출력 규칙]\n- 순수 JSON만 출력 (마크다운 코드블록 금지)\n- 문맥을 고려했을때 전문용어의 오타가 있다면 수정해야함.\n- 큰따옴표 안에서 큰따옴표 사용 금지 → 작은따옴표 사용\n- 줄바꿈은 \\n으로\n\n[필수 출력 구조]\nnew_script: 전체 나레이션 (한국어)\ncuts: 6개 객체 배열\n  - cut_number: 1~6\n  - image_prompt: 영어 이미지 프롬프트 (50단어+, 한글 자막 포함)\n  - subtitle_text: 한글 자막 (10자 이내)\n  - duration: 5\n\n[글자 수 규칙 - 최우선]\n- new_script: **정확히 300자 내외**\n- 출력 전 반드시 글자 수 검증\n\n[자막 예시]\n'이게 진짜?' / '충격 반전' / '대박 꿀팁' / '결과는?' / '핵심 포인트' / '지금 바로!'\n\n[절대 금지]\n- cuts 6개 아님\n- image_prompt 50단어 미만\n- subtitle_text 10자 초과\n- new_script 330자 미만 또는 350자 초과"
         }
       },
       "id": "n11",
@@ -1641,17 +1647,6 @@
       ]
     },
     {
-      "parameters": {},
-      "id": "ad8f2547-6f27-4e22-9089-75b861966736",
-      "name": "Trigger",
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        -4000,
-        0
-      ]
-    },
-    {
       "parameters": {
         "url": "https://youtube-transcriptor.p.rapidapi.com/transcript",
         "authentication": "genericCredentialType",
@@ -1698,7 +1693,7 @@
           "assignments": [
             {
               "name": "video_id",
-              "value": "={{ $json.YouTube_URL.split('v=')[1] ? $json.YouTube_URL.split('v=')[1].split('&')[0] : $json.YouTube_URL.split('youtu.be/')[1] ? $json.YouTube_URL.split('youtu.be/')[1].split('?')[0] : '' }}",
+              "value": "={{ (() => { const url = $json.YouTube_URL || ''; const patterns = [/(?:youtube\\.com\\/watch\\?v=|youtu\\.be\\/)([a-zA-Z0-9_-]{11})/, /youtube\\.com\\/embed\\/([a-zA-Z0-9_-]{11})/, /youtube\\.com\\/v\\/([a-zA-Z0-9_-]{11})/]; for (const p of patterns) { const m = url.match(p); if (m) return m[1]; } return ''; })() }}",
               "type": "string"
             },
             {
@@ -2268,9 +2263,338 @@
       ],
       "id": "b986630d-d594-4950-89f1-f18c06c1cee8",
       "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "mode": "list",
+          "cachedResultName": "YouTube Recreation Queue",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('Get Google Sheets').item.json.row_number }}",
+            "Status": "failed"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "YouTube_URL",
+              "displayName": "YouTube_URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Original_Script",
+              "displayName": "Original_Script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "New_Script",
+              "displayName": "New_Script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Image_Prompts",
+              "displayName": "Image_Prompts",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "YouTube_URL_Result",
+              "displayName": "YouTube_URL_Result",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Cost",
+              "displayName": "Cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Created_At",
+              "displayName": "Created_At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Completed_At",
+              "displayName": "Completed_At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "46e52a3a-b10e-4d01-9c8d-db8a25c726cd",
+      "name": "Update Error",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -2544,
+        336
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "sqLIZbCaqoa75ju1",
+          "name": "google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -4336,
+        0
+      ],
+      "id": "56f60c60-6005-4087-8f42-4dc23fc1709d",
+      "name": "Telegram Trigger",
+      "webhookId": "d21efb8c-d0a1-42f6-978b-94804019c5d4",
+      "credentials": {
+        "telegramApi": {
+          "id": "cFOYzHQ17VE86w2P",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "mode": "list",
+          "cachedResultName": "YouTube Recreation Queue",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{$now.format('yyyy_MM_dd_HH_mm')}}",
+            "YouTube_URL": "={{ $json.message.text }}",
+            "Status": "pending"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "YouTube_URL",
+              "displayName": "YouTube_URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Original_Script",
+              "displayName": "Original_Script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "New_Script",
+              "displayName": "New_Script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Image_Prompts",
+              "displayName": "Image_Prompts",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "YouTube_URL_Result",
+              "displayName": "YouTube_URL_Result",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Cost",
+              "displayName": "Cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Created_At",
+              "displayName": "Created_At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Completed_At",
+              "displayName": "Completed_At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -4128,
+        0
+      ],
+      "id": "1ae91131-7d20-4aae-9027-0e6f74520136",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "sqLIZbCaqoa75ju1",
+          "name": "google account"
+        }
+      }
+    },
+    {
+      "id": "telegram_complete",
+      "name": "Send Completion Alert",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3664,
+        -32
+      ],
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "=✅ YouTube Recreation 완료!\n\n🎬 영상: {{ $json.Final_Video_URL }}\n💰 비용: ${{ $json.Cost }}\n📝 ID: {{ $json.ID }}",
+        "additionalFields": {}
+      },
+      "credentials": {
+        "telegramApi": {
+          "id": "cFOYzHQ17VE86w2P",
+          "name": "Telegram account"
+        }
+      }
     }
   ],
-  "pinData": {},
   "connections": {
     "Get Google Sheets": {
       "main": [
@@ -2757,17 +3081,6 @@
         ]
       ]
     },
-    "Trigger": {
-      "main": [
-        [
-          {
-            "node": "Get Google Sheets",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Prepare TTS Request": {
       "main": [
         [
@@ -2983,19 +3296,118 @@
           }
         ]
       ]
+    },
+    "No Transcript Error": {
+      "main": [
+        [
+          {
+            "node": "Update Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Final Status": {
+      "main": [
+        [
+          {
+            "node": "Send Completion Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Get Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "active": false,
   "settings": {
     "executionOrder": "v1",
     "callerPolicy": "workflowsFromSameOwner",
     "availableInMCP": false
   },
-  "versionId": "0f5c54f2-f117-434d-9a0d-70667bdb2556",
+  "staticData": null,
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "553673f5075ec6c0f1e4c39d024b8b4c92d826b20e04328f9ca663bae48eda93"
+    "templateCredsSetupCompleted": true
   },
-  "id": "tNJ1JXdp8V9maj7I",
-  "tags": []
+  "pinData": {},
+  "versionId": "878d21fd-0e25-49ca-861f-a701936565c4",
+  "activeVersionId": null,
+  "versionCounter": 577,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-01-28T01:58:41.137Z",
+      "createdAt": "2026-01-28T01:58:41.137Z",
+      "role": "workflow:owner",
+      "workflowId": "tNJ1JXdp8V9maj7I",
+      "projectId": "6eGC3v3T4sSe9KYf",
+      "project": {
+        "updatedAt": "2026-01-27T05:08:06.444Z",
+        "createdAt": "2026-01-27T05:03:25.107Z",
+        "id": "6eGC3v3T4sSe9KYf",
+        "name": "Genie Jang <genie@codeiwithgenie.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "7c819111-a148-4e56-a1f9-d04aa373c1f9",
+        "projectRelations": [
+          {
+            "updatedAt": "2026-01-27T05:03:25.107Z",
+            "createdAt": "2026-01-27T05:03:25.107Z",
+            "userId": "7c819111-a148-4e56-a1f9-d04aa373c1f9",
+            "projectId": "6eGC3v3T4sSe9KYf",
+            "user": {
+              "updatedAt": "2026-01-30T02:01:31.000Z",
+              "createdAt": "2026-01-27T05:03:24.889Z",
+              "id": "7c819111-a148-4e56-a1f9-d04aa373c1f9",
+              "email": "genie@codewithgenie.com",
+              "firstName": "Genie",
+              "lastName": "Jang",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2026-01-27T05:08:18.264Z",
+                "personalization_survey_n8n_version": "2.4.6",
+                "companySize": "<20",
+                "companyType": "saas",
+                "role": "business-owner",
+                "reportedSource": "google"
+              },
+              "settings": {
+                "userActivated": false,
+                "easyAIWorkflowOnboarded": true
+              },
+              "disabled": false,
+              "mfaEnabled": false,
+              "lastActiveAt": "2026-01-30",
+              "isPending": false
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "tags": [],
+  "activeVersion": null
 }

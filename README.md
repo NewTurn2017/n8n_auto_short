@@ -177,7 +177,7 @@ ngrok http --url=my-workflow.ngrok-free.dev 5678
 
 ### 1단계: Google Sheets 준비
 
-**[📋 Google Sheets 템플릿 복사하기](https://docs.google.com/spreadsheets/d/1PIDHdNf_1lq1B7fxOu_ocCLpO5w3lBPX8WhjkvF0jKI/edit?usp=sharing)** ← 클릭 후 "사본 만들기"
+**[📋 Google Sheets 템플릿 복사하기](https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=sharing)** ← 클릭 후 "사본 만들기"
 
 > ⚠️ **중요**: 위 링크를 열고 **파일 → 사본 만들기**를 클릭해서 본인 계정에 복사하세요!
 
