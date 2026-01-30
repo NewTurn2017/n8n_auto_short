@@ -58,7 +58,7 @@ Claude나 ChatGPT에게 `N8N_INSTALL.md` 파일과 **ngrok 고정 도메인**을
 
 ```
 이 문서를 보고 n8n을 설치해주세요.
-제 ngrok 고정 도메인은 xxx-yyy-zzz.ngrok-free.app 입니다.
+제 ngrok 고정 도메인은 xxx-yyy-zzz.ngrok-free.dev 입니다.
 ```
 
 AI가 자동으로 ngrok URL을 docker-compose.yml에 포함시켜 설정합니다.
@@ -113,7 +113,7 @@ ngrok http --url=<본인_ngrok_도메인> 5678
 
 예시:
 ```bash
-ngrok http --url=my-workflow.ngrok-free.app 5678
+ngrok http --url=my-workflow.ngrok-free.dev 5678
 ```
 
 > **중요**: n8n 사용 중에는 ngrok 터미널을 계속 열어두세요!
@@ -131,8 +131,8 @@ ngrok http --url=my-workflow.ngrok-free.app 5678
 
 1. n8n에 접속합니다 (http://localhost:5678)
 2. 왼쪽 메뉴에서 **Workflows** 클릭
-3. 오른쪽 위 **Import from URL** 또는 **Import from File** 클릭
-4. 이 저장소의 워크플로우 파일을 선택
+3. 오른쪽 위 **Import from File** 클릭
+4. 이 저장소의 `YouTube Recreation v2.json` 파일을 선택
 
 ---
 
@@ -177,7 +177,11 @@ ngrok http --url=my-workflow.ngrok-free.app 5678
 
 ### 1단계: Google Sheets 준비
 
-아래 형식의 스프레드시트를 만드세요:
+**[📋 Google Sheets 템플릿 복사하기](https://docs.google.com/spreadsheets/d/1PIDHdNf_1lq1B7fxOu_ocCLpO5w3lBPX8WhjkvF0jKI/edit?usp=sharing)** ← 클릭 후 "사본 만들기"
+
+> ⚠️ **중요**: 위 링크를 열고 **파일 → 사본 만들기**를 클릭해서 본인 계정에 복사하세요!
+
+스프레드시트 형식:
 
 | ID | YouTube_URL | Status |
 |----|-------------|--------|
@@ -201,13 +205,14 @@ ngrok http --url=my-workflow.ngrok-free.app 5678
 
 ```
 n8n_auto_short/
-├── README.md              ← 지금 보고 있는 파일
-├── N8N_INSTALL.md         ← n8n 설치 가이드
-├── LECTURE_MATERIALS.md   ← 강의 자료 (상세)
-├── CHEAT_SHEET.md         ← 빠른 참조 시트
-├── CREDENTIALS_SETUP_GUIDE.md ← API 키 설정 상세 가이드
-├── Dockerfile             ← Docker 설정 파일
-└── docker-compose.yml     ← Docker 실행 설정
+├── README.md                    ← 지금 보고 있는 파일
+├── N8N_INSTALL.md               ← n8n 설치 가이드
+├── LECTURE_MATERIALS.md         ← 강의 자료 (상세)
+├── CHEAT_SHEET.md               ← 빠른 참조 시트
+├── CREDENTIALS_SETUP_GUIDE.md   ← API 키 설정 상세 가이드
+├── YouTube Recreation v2.json   ← n8n 워크플로우 파일 (Import용)
+├── Dockerfile                   ← Docker 설정 파일
+└── docker-compose.yml           ← Docker 실행 설정
 ```
 
 ---

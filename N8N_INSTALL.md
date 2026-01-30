@@ -86,7 +86,7 @@ ngrok config add-authtoken <복사한_토큰>
 1. ngrok Dashboard → **Domains** 메뉴
    - URL: https://dashboard.ngrok.com/domains
 2. **Create Domain** 또는 **+ New Domain** 클릭
-3. 자동으로 생성된 도메인 확인 (예: `your-name-random.ngrok-free.app`)
+3. 자동으로 생성된 도메인 확인 (예: `your-name-random.ngrok-free.dev`)
 4. **이 도메인을 메모해두세요!** (나중에 docker-compose.yml에 사용)
 
 ### 1-5. ngrok 테스트 실행
@@ -98,7 +98,7 @@ ngrok http --url=<본인의_ngrok_도메인> 5678
 
 **예시:**
 ```bash
-ngrok http --url=my-awesome-workflow.ngrok-free.app 5678
+ngrok http --url=my-awesome-workflow.ngrok-free.dev 5678
 ```
 
 **성공 시 출력 예시:**
@@ -107,7 +107,7 @@ Session Status                online
 Account                       your-email@example.com
 Version                       3.x.x
 Region                        Japan (jp)
-Forwarding                    https://my-awesome-workflow.ngrok-free.app -> http://localhost:5678
+Forwarding                    https://my-awesome-workflow.ngrok-free.dev -> http://localhost:5678
 ```
 
 > **참고**: n8n이 아직 실행되지 않았으므로 `502 Bad Gateway`가 뜨는 것은 정상입니다.
@@ -117,7 +117,7 @@ Forwarding                    https://my-awesome-workflow.ngrok-free.app -> http
 
 ```
 ngrok 고정 도메인 URL을 알려주세요.
-예시: https://my-awesome-workflow.ngrok-free.app
+예시: https://my-awesome-workflow.ngrok-free.dev
 ```
 
 사용자가 제공한 URL을 STEP 3에서 docker-compose.yml에 넣습니다.
@@ -244,10 +244,10 @@ EOF
 mkdir -p data/videos
 ```
 
-**예시** (ngrok URL이 `my-awesome-workflow.ngrok-free.app`인 경우):
+**예시** (ngrok URL이 `my-awesome-workflow.ngrok-free.dev`인 경우):
 ```yaml
-WEBHOOK_URL: 'https://my-awesome-workflow.ngrok-free.app'
-N8N_EDITOR_BASE_URL: 'https://my-awesome-workflow.ngrok-free.app'
+WEBHOOK_URL: 'https://my-awesome-workflow.ngrok-free.dev'
+N8N_EDITOR_BASE_URL: 'https://my-awesome-workflow.ngrok-free.dev'
 ```
 
 ### Windows (PowerShell)
@@ -339,7 +339,7 @@ ngrok http --url=<본인의_ngrok_도메인> 5678
 
 **예시:**
 ```bash
-ngrok http --url=my-awesome-workflow.ngrok-free.app 5678
+ngrok http --url=my-awesome-workflow.ngrok-free.dev 5678
 ```
 
 > **중요**: ngrok은 n8n을 사용하는 동안 계속 실행 상태로 유지해야 합니다.
@@ -499,7 +499,7 @@ ngrok config add-authtoken <your_authtoken>
 ### ngrok "ERR_NGROK_4018" 도메인 오류
 - 고정 도메인 URL을 정확히 입력했는지 확인
 - ngrok Dashboard에서 도메인이 활성 상태인지 확인
-- `https://` 없이 도메인만 입력해야 합니다 (예: `my-name.ngrok-free.app`)
+- `https://` 없이 도메인만 입력해야 합니다 (예: `my-name.ngrok-free.dev`)
 
 ### 데이터 백업
 n8n 데이터는 Docker 볼륨 `n8n-self-data`에 저장됩니다.

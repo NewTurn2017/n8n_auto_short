@@ -1,0 +1,3001 @@
+{
+  "name": "YouTube Recreation v2",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "mode": "list",
+          "cachedResultName": "YouTube Recreation Queue",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "pending"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "id": "n02",
+      "name": "Get Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -3792,
+        0
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "sqLIZbCaqoa75ju1",
+          "name": "google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "mode": "list",
+          "cachedResultName": "YouTube Recreation Queue",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $json.row_number }}",
+            "Status": "processing",
+            "Created_At": "={{ $now }}",
+            "YouTube_URL": "={{ $json.YouTube_URL }}",
+            "ID": "={{ $json.ID }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "YouTube_URL",
+              "displayName": "YouTube_URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Original_Script",
+              "displayName": "Original_Script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Reference_Images",
+              "displayName": "Reference_Images",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Character_Analysis",
+              "displayName": "Character_Analysis",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "New_Script",
+              "displayName": "New_Script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Image_Prompts",
+              "displayName": "Image_Prompts",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Generated_Images",
+              "displayName": "Generated_Images",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Video_Clips",
+              "displayName": "Video_Clips",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Audio_URL",
+              "displayName": "Audio_URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Final_Video_URL",
+              "displayName": "Final_Video_URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "YouTube_Video_ID",
+              "displayName": "YouTube_Video_ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Error_Message",
+              "displayName": "Error_Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Cost",
+              "displayName": "Cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Created_At",
+              "displayName": "Created_At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Completed_At",
+              "displayName": "Completed_At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "n05",
+      "name": "Update Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -3584,
+        0
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "sqLIZbCaqoa75ju1",
+          "name": "google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $input.first().json;\nlet transcriptText = '';\nlet hasTranscript = false;\nlet detectedLang = 'ko';\n\ntry {\n  // youtube-transcriptor API 응답 형식: [{transcriptionAsText, transcription, ...}]\n  const data = Array.isArray(input) ? input[0] : input;\n  \n  if (data && data.transcriptionAsText) {\n    // 전체 텍스트 사용\n    transcriptText = data.transcriptionAsText\n      .replace(/\\n/g, ' ')\n      .replace(/\\s+/g, ' ')\n      .trim();\n    hasTranscript = transcriptText.length > 0;\n    \n    // 사용 가능한 언어에서 감지\n    if (data.availableLangs && data.availableLangs.length > 0) {\n      detectedLang = data.availableLangs[0];\n    }\n  }\n  // 백업: transcription 배열 사용\n  else if (data && data.transcription && Array.isArray(data.transcription)) {\n    transcriptText = data.transcription\n      .map(item => item.subtitle || item.text || '')\n      .join(' ')\n      .replace(/\\n/g, ' ')\n      .replace(/\\s+/g, ' ')\n      .trim();\n    hasTranscript = transcriptText.length > 0;\n  }\n} catch (e) {\n  transcriptText = '';\n  hasTranscript = false;\n}\n\nreturn [{\n  json: {\n    transcript_text: transcriptText,\n    has_transcript: hasTranscript,\n    detected_language: detectedLang\n  }\n}];"
+      },
+      "id": "n07",
+      "name": "Parse Transcript",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3008,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 3,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.has_transcript }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              },
+              "id": "cond1"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "n08",
+      "name": "Check Transcript",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -2800,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "mode": "list",
+          "cachedResultName": "YouTube Recreation Queue",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mxYYGG78ttIxw3Y9J6BKTosihHOzLcEn-s2oZMSn6Hs/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $('Get Google Sheets').item.json.row_number }}",
+            "Original_Script": "={{ $json.transcript_text }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Original_Script",
+              "displayName": "Original_Script",
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "n09",
+      "name": "Update Original Script",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -2544,
+        -16
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "sqLIZbCaqoa75ju1",
+          "name": "google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "Status",
+              "value": "failed",
+              "type": "string"
+            },
+            {
+              "name": "Error_Message",
+              "value": "No transcript available",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n10",
+      "name": "No Transcript Error",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2544,
+        176
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=다음 유튜브 영상의 원본 트랜스크립트를 분석한 뒤, 한국어 숏폼 나레이션과 이미지 프롬프트를 생성하세요.\n\n원본 트랜스크립트:\n{{ $json.Original_Script }}\n\n작업 지시:\n\n1단계 - 핵심 분석:\n- 원본 영상의 핵심 메시지 1가지만 추출\n- 시청자를 처음 2초 안에 사로잡을 훅 설계\n\n2단계 - 한국어 나레이션 작성 (new_script):\n- **정확히 330-350자** (28초 분량)\n- 글자 수를 반드시 세어서 확인할 것\n- 구어체, 짧은 문장, 임팩트 있는 표현\n- 불필요한 수식어, 반복 표현 제거\n- 핵심만 전달\n\n3단계 - 6개 컷 이미지 프롬프트:\n각 컷마다:\n(1) 주요 피사체와 행동 묘사\n(2) 환경/배경\n(3) 조명/분위기 (cinematic, neon glow 등)\n(4) 카메라 앵글 (close-up, wide shot 등)\n(5) 한글 자막: bold white Korean subtitle at bottom saying '[10자 이내 자막]'\n(6) 끝에 필수: vertical 9:16, ultra detailed, photorealistic, 8K\n\n프롬프트 50단어 이상, 자막은 해당 컷의 핵심 메시지",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=당신은 한국 최정상급 숏폼 크리에이터입니다.\n\n[출력 규칙]\n- 순수 JSON만 출력 (마크다운 코드블록 금지)\n- 큰따옴표 안에서 큰따옴표 사용 금지 → 작은따옴표 사용\n- 줄바꿈은 \\n으로\n\n[필수 출력 구조]\nnew_script: 전체 나레이션 (한국어)\ncuts: 6개 객체 배열\n  - cut_number: 1~6\n  - image_prompt: 영어 이미지 프롬프트 (50단어+, 한글 자막 포함)\n  - subtitle_text: 한글 자막 (10자 이내)\n  - duration: 5\n\n[글자 수 규칙 - 최우선]\n- new_script: **정확히 300자 내외**\n- 출력 전 반드시 글자 수 검증\n\n[자막 예시]\n'이게 진짜?' / '충격 반전' / '대박 꿀팁' / '결과는?' / '핵심 포인트' / '지금 바로!'\n\n[절대 금지]\n- cuts 6개 아님\n- image_prompt 50단어 미만\n- subtitle_text 10자 초과\n- new_script 330자 미만 또는 350자 초과"
+        }
+      },
+      "id": "n11",
+      "name": "AI Script Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -2208,
+        -16
+      ]
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"new_script\": {\n      \"type\": \"string\",\n      \"description\": \"전체 나레이션 대본 (한국어, 350-400자, 28초 분량)\"\n    },\n    \"cuts\": {\n      \"type\": \"array\",\n      \"description\": \"6개의 컷 배열\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"cut_number\": {\"type\": \"number\", \"description\": \"컷 번호 (1-6)\"},\n          \"image_prompt\": {\"type\": \"string\", \"description\": \"NanoBanana Pro용 영어 이미지 프롬프트 (한글 자막 포함)\"},\n          \"subtitle_text\": {\"type\": \"string\", \"description\": \"이미지에 포함될 한글 자막 (10자 이내)\"},\n          \"duration\": {\"type\": \"number\", \"description\": \"컷 길이 (초)\"}\n        },\n        \"required\": [\"cut_number\", \"image_prompt\", \"subtitle_text\", \"duration\"]\n      }\n    }\n  },\n  \"required\": [\"new_script\", \"cuts\"]\n}"
+      },
+      "id": "n13",
+      "name": "Structured Output Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -2048,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = $input.first().json.output || $input.first().json;\nconst newScript = output.new_script || '';\nconst cuts = output.cuts || [];\nconst rowNum = $('Get Google Sheets').first().json.row_number;\nconst id = $('Get Google Sheets').first().json.ID;\nreturn [{\n  json: {\n    New_Script: newScript,\n    Image_Prompts: JSON.stringify(cuts),\n    row_number: rowNum,\n    ID: id,\n    transcript_text: $('Parse Transcript').first().json.transcript_text\n  }\n}];"
+      },
+      "id": "n14",
+      "name": "Parse AI Output",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1824,
+        -16
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "mode": "list",
+          "cachedResultName": "YouTube Recreation Queue"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $json.row_number }}",
+            "New_Script": "={{ $json.New_Script }}",
+            "Image_Prompts": "={{ $json.Image_Prompts }}",
+            "ID": "={{ $('Get Google Sheets').item.json.ID }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "YouTube_URL",
+              "displayName": "YouTube_URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Original_Script",
+              "displayName": "Original_Script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Reference_Images",
+              "displayName": "Reference_Images",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Character_Analysis",
+              "displayName": "Character_Analysis",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "New_Script",
+              "displayName": "New_Script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Image_Prompts",
+              "displayName": "Image_Prompts",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Generated_Images",
+              "displayName": "Generated_Images",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Video_Clips",
+              "displayName": "Video_Clips",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Audio_URL",
+              "displayName": "Audio_URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Final_Video_URL",
+              "displayName": "Final_Video_URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "YouTube_Video_ID",
+              "displayName": "YouTube_Video_ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Error_Message",
+              "displayName": "Error_Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Cost",
+              "displayName": "Cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Created_At",
+              "displayName": "Created_At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Completed_At",
+              "displayName": "Completed_At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "n15",
+      "name": "Update AI Data",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1616,
+        -16
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "sqLIZbCaqoa75ju1",
+          "name": "google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// 랜덤 보이스 선택\nconst voices = [\n  'BIvP0GN1cAtSRTxNHnWS', 'aMSt68OGf4xUZAnLpTU8', 'RILOU7YmBhvwJGDGjNmP',\n  'EkK5I93UQWFDigLMpZcX', 'Z3R5wn05IrDiVCyEkUrK', 'tnSpp4vdxKPjI9w0GnoV',\n  'NNl6r8mD7vthiJatiJt1', 'YOq2y2Up4RgXP2HyXjE5', 'Bj9UqZbhQsanLzgalpEG',\n  'c6SfcYrb2t09NHXiT80T', 'B8gJV1IhpuegLxdpXFOE', 'exsUS4vynmxd379XN4yO',\n  'BpjGufoPiobT79j2vtj4', '2zRM7PkgwBPiau2jvVXc', '1SM7GgM6IMuvQlz2BwM3',\n  'ouL9IsyrSnUkCmfnD02u', '5l5f8iK3YPeGga21rQIX', 'scOwDtmlUjD3prqpp97I',\n  'NOpBlnGInO9m6vDvFkFC', 'BZgkqPqms7Kj9ulSkVzn', 'wo6udizrrtpIxWGp2qJk',\n  'yjJ45q8TVCrtMhEKurxY', 'gU0LNdkMOQCOrPrwtbee', 'DGzg6RaUqxGRTHSBjfgF',\n  'DGTOOUoGpoP6UZ9uSWfA', 'x70vRnQBMBu4FAYhjJbO', 'Sm1seazb4gs7RSlUVw7c',\n  'P1bg08DkjqiVEzOn76yG', 'qDuRKMlYmrm8trt5QyBn', 'kUUTqKQ05NMGulF08DDf',\n  'qXpMhyvQqiRxWQs4qSSB', 'TX3LPaxmHKxFdv7VOQHJ', 'iP95p4xoKVk53GoZ742B',\n  'SOYHLrjzK2X1ezoPC6cr', 'N2lVS1w4EtoT3dr4eOWO', 'FGY2WhTYpPnrIDTdsKH5',\n  'XB0fDUnXU5powFXDhCwa', 'cgSgspJ2msm6clMCkdW9', 'MnUw1cSnpiLoLhpd3Hqp',\n  'kPzsL2i3teMYv0FxEYQ6', 'UgBBYS2sOqTuMpoF3BR0', 'IjnA9kwZJHJ20Fp7Vmy6',\n  'KoQQbl9zjAdLgKZjm8Ol', 'hpp4J3VqNfWAUOO0d1Us', 'pNInz6obpgDQGcFmaJgB',\n  'nPczCjzI2devNBz1zQrb', 'L0Dsvb3SLTyegXwtm47J', 'uYXf8XasLslADfZ2MB4u'\n];\n\nconst randomVoice = voices[Math.floor(Math.random() * voices.length)];\nconst newScript = $json.New_Script;\nconst id = $json.ID;\nconst rowNumber = $json.row_number;\n\n// TTS API 요청 데이터 준비\nconst ttsRequest = {\n  model: 'elevenlabs/text-to-dialogue-v3',\n  input: {\n    stability: 0.5,\n    language_code: 'ko',\n    dialogue: [{\n      text: newScript,\n      voice: randomVoice\n    }]\n  }\n};\n\nreturn [{\n  json: {\n    tts_request: ttsRequest,\n    selected_voice: randomVoice,\n    New_Script: newScript,\n    ID: id,\n    row_number: rowNumber\n  }\n}];"
+      },
+      "id": "t01",
+      "name": "Prepare TTS Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1184,
+        -304
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json;\nconst cuts = JSON.parse(data.Image_Prompts || '[]');\nconst id = data.ID;\nconst rowNum = data.row_number;\nreturn cuts.map(cut => ({\n  json: {\n    image_prompt: cut.image_prompt,\n    cut_number: cut.cut_number,\n    subtitle_text: cut.subtitle_text,\n    duration: cut.duration || 5,\n    ID: id,\n    row_number: rowNum\n  }\n}));"
+      },
+      "id": "i01",
+      "name": "Split Cuts to Items",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1408,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "i02",
+      "name": "Image Loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1088,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.kie.ai/api/v1/jobs/createTask",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'nano-banana-pro', input: { prompt: $json.image_prompt, aspect_ratio: '9:16', resolution: '1K' } }) }}",
+        "options": {}
+      },
+      "id": "i03",
+      "name": "Create Image Task",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -896,
+        768
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n6k6Wz1TNW99pzWm",
+          "name": "Kie AI Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "task_id",
+              "value": "={{ $json.data.taskId }}",
+              "type": "string"
+            },
+            {
+              "name": "cut_number",
+              "value": "={{ $('Image Loop').item.json.cut_number }}",
+              "type": "number"
+            },
+            {
+              "name": "ID",
+              "value": "={{ $('Image Loop').item.json.ID }}",
+              "type": "string"
+            },
+            {
+              "name": "row_number",
+              "value": "={{ $('Image Loop').item.json.row_number }}",
+              "type": "number"
+            },
+            {
+              "name": "retry_count",
+              "value": "0",
+              "type": "number"
+            },
+            {
+              "name": "max_retries",
+              "value": "20",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "i04",
+      "name": "Init Image Poll",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -704,
+        832
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 15
+      },
+      "id": "i05",
+      "name": "Wait for Image",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -496,
+        832
+      ],
+      "webhookId": "31d1d0ca-c4bb-4a5f-9f97-7eb3ebed7b60"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.kie.ai/api/v1/jobs/recordInfo",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "taskId",
+              "value": "={{ $json.task_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "i06",
+      "name": "Poll Image Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -304,
+        832
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n6k6Wz1TNW99pzWm",
+          "name": "Kie AI Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 3,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.data.state }}",
+              "rightValue": "success",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "id": "img-success"
+            },
+            {
+              "leftValue": "={{ $json.data.state }}",
+              "rightValue": "failed",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "id": "img-failed"
+            },
+            {
+              "leftValue": "={{ ($('Init Image Poll').first().json.retry_count || 0) >= ($('Init Image Poll').first().json.max_retries || 20) }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              },
+              "id": "timeout"
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "i07",
+      "name": "Check Image Done",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -112,
+        832
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "i08",
+      "name": "Wait Image Retry",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        64,
+        832
+      ],
+      "webhookId": "9c6d5ab9-3cb1-4093-87f6-e234c7f2fb7b"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "image_url",
+              "value": "={{ JSON.parse($json.data.resultJson).resultUrls[0] }}",
+              "type": "string",
+              "id": "132f5c61-aad0-421b-92d3-d734f6edf216"
+            },
+            {
+              "name": "cut_number",
+              "value": "={{ $('Init Image Poll').first().json.cut_number }}",
+              "type": "number",
+              "id": "778e3368-4b04-4968-a1b7-29a3e4f04c20"
+            },
+            {
+              "name": "ID",
+              "value": "={{ $('Init Image Poll').first().json.ID }}",
+              "type": "string",
+              "id": "72cc7d50-4e62-463e-92e9-077122136625"
+            },
+            {
+              "name": "row_number",
+              "value": "={{ $('Init Image Poll').first().json.row_number }}",
+              "type": "number",
+              "id": "77b08718-547c-4b42-b748-d1db85b94d7f"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "i09",
+      "name": "Store Image",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        112,
+        1056
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst images = items.map(item => ({ url: item.json.image_url, cut_number: item.json.cut_number }));\nimages.sort((a, b) => a.cut_number - b.cut_number);\nconst id = items[0].json.ID;\nconst rowNum = items[0].json.row_number;\nreturn [{ json: { image_urls: images.map(i => i.url), Generated_Images: JSON.stringify(images.map(i => i.url)), ID: id, row_number: rowNum } }];"
+      },
+      "id": "i10",
+      "name": "Collect All Images",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        32,
+        224
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const allImages = $input.first().json;\nconst imageUrls = allImages.image_urls || [];\nconst id = allImages.ID;\nconst rowNumber = allImages.row_number;\nreturn imageUrls.map((url, idx) => ({ json: { image_url: url, cut_number: idx + 1, total_cuts: imageUrls.length, ID: id, row_number: rowNumber } }));"
+      },
+      "id": "v01",
+      "name": "Split Images for Video",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        224
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "v02",
+      "name": "Video Loop",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        496,
+        224
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.kie.ai/api/v1/jobs/createTask",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'kling-2.6/image-to-video', input: { prompt: 'subtle natural movement, smooth camera motion, cinematic. IMPORTANT: Keep all text and subtitles from the first frame completely unchanged and fixed. Do not animate, morph, or modify any Korean text.', image_urls: [$json.image_url], sound: false, duration: '5' } }) }}",
+        "options": {}
+      },
+      "id": "v03",
+      "name": "Create Video Task",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        880,
+        768
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n6k6Wz1TNW99pzWm",
+          "name": "Kie AI Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "task_id",
+              "value": "={{ $json.data.taskId }}",
+              "type": "string",
+              "id": "d5fdb4f6-a84f-4385-843b-bc7947c4653c"
+            },
+            {
+              "name": "cut_number",
+              "value": "={{ $('Video Loop').item.json.cut_number }}",
+              "type": "number",
+              "id": "24991f28-8964-417f-b575-6eaff2f6960a"
+            },
+            {
+              "name": "ID",
+              "value": "={{ $('Video Loop').item.json.ID }}",
+              "type": "string",
+              "id": "9bc72972-c025-44fa-938e-9ed3e3b67707"
+            },
+            {
+              "name": "row_number",
+              "value": "={{ $('Video Loop').item.json.row_number }}",
+              "type": "number",
+              "id": "dbb3b35f-6a49-4d2c-9017-e6091a8eec86"
+            },
+            {
+              "name": "retry_count",
+              "value": 0,
+              "type": "number",
+              "id": "d59149b7-d1fb-4c58-940e-dbc0fae5f241"
+            },
+            {
+              "name": "max_retries",
+              "value": 15,
+              "type": "number",
+              "id": "06c256e9-b926-4a3c-9737-f912f620e38e"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "v04",
+      "name": "Init Video Poll",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1072,
+        768
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 90
+      },
+      "id": "v05",
+      "name": "Wait for Video",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1296,
+        768
+      ],
+      "webhookId": "85e6b6fa-5a4c-4028-8243-034d2aa0faee"
+    },
+    {
+      "parameters": {
+        "url": "https://api.kie.ai/api/v1/jobs/recordInfo",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "taskId",
+              "value": "={{ $json.task_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "v06",
+      "name": "Poll Video Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1536,
+        784
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n6k6Wz1TNW99pzWm",
+          "name": "Kie AI Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 3,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.data.state }}",
+              "rightValue": "success",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "id": "vid-success"
+            },
+            {
+              "leftValue": "={{ $json.data.state }}",
+              "rightValue": "failed",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "id": "vid-failed"
+            },
+            {
+              "leftValue": "={{ ($('Init Video Poll').first().json.retry_count || 0) >= ($('Init Video Poll').first().json.max_retries || 15) }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              },
+              "id": "timeout"
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "v07",
+      "name": "Check Video Done",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1776,
+        784
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "video_url",
+              "value": "={{ JSON.parse($json.data.resultJson).resultUrls[0] }}",
+              "type": "string"
+            },
+            {
+              "name": "cut_number",
+              "value": "={{ $('Init Video Poll').first().json.cut_number }}",
+              "type": "number"
+            },
+            {
+              "name": "ID",
+              "value": "={{ $('Init Video Poll').first().json.ID }}",
+              "type": "string"
+            },
+            {
+              "name": "row_number",
+              "value": "={{ $('Init Video Poll').first().json.row_number }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "v08",
+      "name": "Store Video",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2480,
+        1072
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "id": "v09",
+      "name": "Wait Video Retry",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2016,
+        1040
+      ],
+      "webhookId": "c64dc07b-c290-40d8-b4e1-e7da5ffbcd9e"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst videos = items.map(item => ({ video_url: item.json.video_url, cut_number: item.json.cut_number })).sort((a, b) => a.cut_number - b.cut_number);\nconst videoUrls = videos.map(v => v.video_url);\nconst firstItem = items[0].json;\nreturn [{ json: { video_urls: videoUrls, video_count: videoUrls.length, ID: firstItem.ID, row_number: firstItem.row_number } }];"
+      },
+      "id": "v10",
+      "name": "Collect All Videos",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        832,
+        64
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {
+          "includeUnpaired": true
+        }
+      },
+      "id": "a01",
+      "name": "Merge Branches",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1168,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nlet audioPath = '';\nlet videoUrls = [];\nlet id = '';\nlet rowNumber = 0;\n\nfor (const item of items) {\n  if (item.json.audio_path) {\n    audioPath = item.json.audio_path;\n    id = item.json.ID;\n    rowNumber = item.json.row_number;\n  }\n  if (item.json.video_urls) {\n    videoUrls = item.json.video_urls;\n    id = id || item.json.ID;\n    rowNumber = rowNumber || item.json.row_number;\n  }\n}\n\nconst dir = `/tmp/videos/yt_recreate_${id}`;\n\nlet script = `#!/bin/bash\nset -e\nDIR=\"${dir}\"\n\n# 오디오 파일 확인 (이미 29초로 정규화됨)\nif [ ! -f \"${audioPath}\" ]; then\n  echo \"ERROR: Audio file not found at ${audioPath}\"\n  exit 1\nfi\necho \"Audio file exists: ${audioPath}\"\n\n`;\n\n// 비디오 클립 다운로드\nvideoUrls.forEach((url, i) => {\n  script += `echo \"Downloading clip ${i+1}...\"\ncurl -sL \"${url}\" -o $DIR/clip_${i+1}.mp4\n`;\n});\n\n// concat 파일 생성\nscript += `\n> $DIR/concat.txt\n`;\n\nvideoUrls.forEach((_, i) => {\n  script += `echo \"file 'clip_${i+1}.mp4'\" >> $DIR/concat.txt\n`;\n});\n\n// 비디오 합치기 및 오디오 병합\nscript += `\necho \"Concatenating videos...\"\ncd $DIR\nffmpeg -y -f concat -safe 0 -i concat.txt -c copy video_only.mp4\n\necho \"Merging with audio...\"\nffmpeg -y -i video_only.mp4 -i audio.mp3 -c:v copy -c:a aac -shortest final.mp4\n\nFINAL_PATH=\"$(pwd)/final.mp4\"\necho \"Final video created: $FINAL_PATH\"\necho \"$FINAL_PATH\"\n`;\n\nreturn [{ json: { assembly_script: script, dir: dir, ID: id, row_number: rowNumber } }];"
+      },
+      "id": "a02",
+      "name": "Prepare Assembly",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1392,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "command": "={{ $json.assembly_script }}"
+      },
+      "id": "a03",
+      "name": "Download and Assemble",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1824,
+        -32
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "final_video_path",
+              "value": "={{ $json.stdout.trim().split('\\n').pop() }}",
+              "type": "string",
+              "id": "53e5ec72-ee0c-41c5-93f6-27dd6ea3627f"
+            },
+            {
+              "name": "ID",
+              "value": "={{ $('Prepare Assembly').item.json.ID }}",
+              "type": "string",
+              "id": "6b2bcdbb-2199-40a1-ac99-73dae1743aaf"
+            },
+            {
+              "name": "row_number",
+              "value": "={{ $('Prepare Assembly').item.json.row_number }}",
+              "type": "number",
+              "id": "790b5714-69fe-415f-ba45-55cb421767ad"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a04",
+      "name": "Set Assembly Result",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2032,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "fileSelector": "={{ $json.final_video_path }}",
+        "options": {}
+      },
+      "id": "u01",
+      "name": "Read Final Video",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        2224,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const aiOutput = $json.output || $json;\nconst id = $('Set Assembly Result').first().json.ID;\nconst rowNum = $('Set Assembly Result').first().json.row_number;\n\n// AI가 생성한 메타데이터 사용\nconst title = aiOutput.title || '숏폼 영상';\nconst description = aiOutput.description || '';\nconst tags = aiOutput.tags || ['shorts', '숏폼'];\n\n// Read Final Video에서 binary 데이터 가져오기\nconst binaryData = $('Read Final Video').first().binary;\n\nreturn [{\n  json: {\n    title,\n    description,\n    tags,\n    categoryId: '22',\n    privacyStatus: 'private',\n    ID: id,\n    row_number: rowNum\n  },\n  binary: binaryData\n}];"
+      },
+      "id": "u02",
+      "name": "Prepare Upload Metadata",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{ $json.title }}",
+        "regionCode": "KR",
+        "categoryId": "={{ $json.categoryId }}",
+        "options": {
+          "description": "={{ $json.description }}",
+          "privacyStatus": "private",
+          "selfDeclaredMadeForKids": false,
+          "tags": "={{ $json.tags.join(',') }}"
+        }
+      },
+      "id": "u03",
+      "name": "YouTube Upload",
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        2992,
+        -32
+      ],
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "aPq64dAuwVbi5oCl",
+          "name": "YouTube account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// YouTube node returns the video data directly\nconst videoId = $json.uploadId || 'unknown';\n\nlet rowNum, id;\ntry {\n  rowNum = $('Prepare Upload Metadata').first().json.row_number;\n  id = $('Prepare Upload Metadata').first().json.ID;\n} catch (e) {\n  rowNum = 0;\n  id = 'unknown';\n}\n\n// Cost estimation\nconst ttsCost = 0.016;  // Gemini TTS\nconst imageCost = 6 * 0.09;  \nconst videoCost = 6 * 0.275; \nconst aiCost = 0.05;  // AI script generation\nconst totalCost = ttsCost + imageCost + videoCost + aiCost;\n\nreturn {\n  YouTube_Video_ID: videoId,\n  Status: 'completed',\n  Completed_At: new Date().toISOString(),\n  Cost: totalCost.toFixed(3),\n  Final_Video_URL: `https://youtube.com/shorts/${videoId}`,\n  row_number: rowNum,\n  ID: id\n};"
+      },
+      "id": "u05",
+      "name": "Calculate Cost",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3216,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U",
+          "mode": "list",
+          "cachedResultName": "YouTube Recreation Queue",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1wBEHrySCgzADt8tjLs2Xi2fsAOEwBnN5rBJb9xIvG8U/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "row_number": "={{ $json.row_number }}",
+            "Status": "={{ $json.Status }}",
+            "Cost": "={{ $json.Cost }}",
+            "Completed_At": "={{ $json.Completed_At }}",
+            "ID": "={{ $json.ID }}",
+            "YouTube_URL_Result": "={{ $json.Final_Video_URL }}"
+          },
+          "matchingColumns": [
+            "row_number"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "YouTube_URL",
+              "displayName": "YouTube_URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Original_Script",
+              "displayName": "Original_Script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "New_Script",
+              "displayName": "New_Script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Image_Prompts",
+              "displayName": "Image_Prompts",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "YouTube_URL_Result",
+              "displayName": "YouTube_URL_Result",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Cost",
+              "displayName": "Cost",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Created_At",
+              "displayName": "Created_At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Completed_At",
+              "displayName": "Completed_At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "u06",
+      "name": "Update Final Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3440,
+        -32
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "sqLIZbCaqoa75ju1",
+          "name": "google account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -2256,
+        224
+      ],
+      "id": "148c937c-d3f4-4fa6-b5ef-a66f690fe74a",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "7QqXDZnHPciYjAvc",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "task_id",
+              "value": "={{ $json.task_id || $('Init Image Poll').first().json.task_id }}",
+              "type": "string"
+            },
+            {
+              "name": "cut_number",
+              "value": "={{ $json.cut_number || $('Init Image Poll').first().json.cut_number }}",
+              "type": "number"
+            },
+            {
+              "name": "ID",
+              "value": "={{ $json.ID || $('Init Image Poll').first().json.ID }}",
+              "type": "string"
+            },
+            {
+              "name": "row_number",
+              "value": "={{ $json.row_number || $('Init Image Poll').first().json.row_number }}",
+              "type": "number"
+            },
+            {
+              "name": "retry_count",
+              "value": "={{ ($json.retry_count || $('Init Image Poll').first().json.retry_count || 0) + 1 }}",
+              "type": "number"
+            },
+            {
+              "name": "max_retries",
+              "value": "={{ $json.max_retries || $('Init Image Poll').first().json.max_retries || 20 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "i08a",
+      "name": "Increment Image Retry",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        832
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "task_id",
+              "value": "={{ $json.task_id || $('Init Video Poll').first().json.task_id }}",
+              "type": "string"
+            },
+            {
+              "name": "cut_number",
+              "value": "={{ $json.cut_number || $('Init Video Poll').first().json.cut_number }}",
+              "type": "number"
+            },
+            {
+              "name": "ID",
+              "value": "={{ $json.ID || $('Init Video Poll').first().json.ID }}",
+              "type": "string"
+            },
+            {
+              "name": "row_number",
+              "value": "={{ $json.row_number || $('Init Video Poll').first().json.row_number }}",
+              "type": "number"
+            },
+            {
+              "name": "retry_count",
+              "value": "={{ ($json.retry_count || $('Init Video Poll').first().json.retry_count || 0) + 1 }}",
+              "type": "number"
+            },
+            {
+              "name": "max_retries",
+              "value": "={{ $json.max_retries || $('Init Video Poll').first().json.max_retries || 15 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "v09a",
+      "name": "Increment Video Retry",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2208,
+        1040
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "ad8f2547-6f27-4e22-9089-75b861966736",
+      "name": "Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -4000,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://youtube-transcriptor.p.rapidapi.com/transcript",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "video_id",
+              "value": "={{ $json.video_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-host",
+              "value": "youtube-transcriptor.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n06_supadata",
+      "name": "Get Transcript",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -3216,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "Q2cneBlpbEFVjJI2",
+          "name": "Rapid api header"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "video_id",
+              "value": "={{ $json.YouTube_URL.split('v=')[1] ? $json.YouTube_URL.split('v=')[1].split('&')[0] : $json.YouTube_URL.split('youtu.be/')[1] ? $json.YouTube_URL.split('youtu.be/')[1].split('?')[0] : '' }}",
+              "type": "string"
+            },
+            {
+              "name": "YouTube_URL",
+              "value": "={{ $json.YouTube_URL }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "n06_extract",
+      "name": "Extract Video ID",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -3408,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.kie.ai/api/v1/jobs/createTask",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.tts_request) }}",
+        "options": {}
+      },
+      "id": "tts01",
+      "name": "Create TTS Task",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -976,
+        -304
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n6k6Wz1TNW99pzWm",
+          "name": "Kie AI Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "task_id",
+              "value": "={{ $json.data.taskId }}",
+              "type": "string",
+              "id": "76230382-b1c7-46ad-bea7-20e2612d02b9"
+            },
+            {
+              "name": "ID",
+              "value": "={{ $('Prepare TTS Request').item.json.ID }}",
+              "type": "string",
+              "id": "4c956702-fa0a-4bb9-9ed2-d790ef75a398"
+            },
+            {
+              "name": "row_number",
+              "value": "={{ $('Prepare TTS Request').item.json.row_number }}",
+              "type": "number",
+              "id": "61a94374-b185-451d-8bbd-c059e00ee322"
+            },
+            {
+              "name": "selected_voice",
+              "value": "={{ $('Prepare TTS Request').item.json.selected_voice }}",
+              "type": "string",
+              "id": "6627f349-b798-4370-b8ac-bf7a1eb5350c"
+            },
+            {
+              "name": "retry_count",
+              "value": 0,
+              "type": "number",
+              "id": "f8e86a4b-e0e5-4c39-b29a-7be8951cf56b"
+            },
+            {
+              "name": "max_retries",
+              "value": 30,
+              "type": "number",
+              "id": "6537d2ee-2b1f-4c33-9122-41e10fafaa38"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "tts02",
+      "name": "Init TTS Poll",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -784,
+        -304
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "id": "tts03",
+      "name": "Wait for TTS",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -592,
+        -304
+      ],
+      "webhookId": "0f281ab1-5e9d-4924-b6e6-4b7d0779a9cd"
+    },
+    {
+      "parameters": {
+        "url": "https://api.kie.ai/api/v1/jobs/recordInfo",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "taskId",
+              "value": "={{ $json.task_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "tts04",
+      "name": "Poll TTS Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -400,
+        -304
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "n6k6Wz1TNW99pzWm",
+          "name": "Kie AI Header Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "version": 3,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.data.state }}",
+              "rightValue": "success",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "id": "tts-success"
+            },
+            {
+              "leftValue": "={{ $json.data.state }}",
+              "rightValue": "fail",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "id": "tts-failed"
+            },
+            {
+              "leftValue": "={{ ($('Init TTS Poll').first().json.retry_count || 0) >= ($('Init TTS Poll').first().json.max_retries || 30) }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              },
+              "id": "tts-timeout"
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "tts05",
+      "name": "Check TTS Done",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -176,
+        -304
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "tts06",
+      "name": "Wait TTS Retry",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        64,
+        -176
+      ],
+      "webhookId": "11b0d145-4ff6-48b7-929a-67adb37b6e79"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "task_id",
+              "value": "={{ $('Init TTS Poll').first().json.task_id }}",
+              "type": "string"
+            },
+            {
+              "name": "ID",
+              "value": "={{ $('Init TTS Poll').first().json.ID }}",
+              "type": "string"
+            },
+            {
+              "name": "row_number",
+              "value": "={{ $('Init TTS Poll').first().json.row_number }}",
+              "type": "number"
+            },
+            {
+              "name": "selected_voice",
+              "value": "={{ $('Init TTS Poll').first().json.selected_voice }}",
+              "type": "string"
+            },
+            {
+              "name": "retry_count",
+              "value": "={{ ($('Init TTS Poll').first().json.retry_count || 0) + 1 }}",
+              "type": "number"
+            },
+            {
+              "name": "max_retries",
+              "value": "={{ $('Init TTS Poll').first().json.max_retries || 30 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "tts07",
+      "name": "Increment TTS Retry",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        272,
+        -176
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "audio_url",
+              "value": "={{ JSON.parse($json.data.resultJson).resultUrls[0] }}",
+              "type": "string"
+            },
+            {
+              "name": "ID",
+              "value": "={{ $('Init TTS Poll').first().json.ID }}",
+              "type": "string"
+            },
+            {
+              "name": "row_number",
+              "value": "={{ $('Init TTS Poll').first().json.row_number }}",
+              "type": "number"
+            },
+            {
+              "name": "selected_voice",
+              "value": "={{ $('Init TTS Poll').first().json.selected_voice }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "tts08",
+      "name": "Store TTS Result",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        112,
+        -352
+      ]
+    },
+    {
+      "parameters": {
+        "command": "={{ 'mkdir -p /tmp/videos/yt_recreate_' + $json.ID + ' && chmod 777 /tmp/videos/yt_recreate_' + $json.ID }}"
+      },
+      "id": "tts09",
+      "name": "Create Audio Dir",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        272,
+        -352
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Store TTS Result').first().json.audio_url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "id": "tts10",
+      "name": "Download Audio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        464,
+        -352
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "=/tmp/videos/yt_recreate_{{ $('Store TTS Result').first().json.ID }}/audio_raw.mp3",
+        "options": {}
+      },
+      "id": "tts11",
+      "name": "Write TTS Audio",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [
+        656,
+        -352
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "audio_path",
+              "value": "=/tmp/videos/yt_recreate_{{ $('Store TTS Result').first().json.ID }}/audio.mp3",
+              "type": "string"
+            },
+            {
+              "name": "ID",
+              "value": "={{ $('Store TTS Result').first().json.ID }}",
+              "type": "string"
+            },
+            {
+              "name": "row_number",
+              "value": "={{ $('Store TTS Result').first().json.row_number }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "tts12",
+      "name": "Set TTS Audio Path",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1024,
+        -352
+      ]
+    },
+    {
+      "parameters": {
+        "command": "=#!/bin/bash\nset -e\n\nDIR=\"/tmp/videos/yt_recreate_{{ $('Store TTS Result').first().json.ID }}\"\nINPUT=\"$DIR/audio_raw.mp3\"\nOUTPUT=\"$DIR/audio.mp3\"\nTARGET=29\n\n# Get original duration\nORIG=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"$INPUT\")\necho \"Original: ${ORIG}s\"\n\n# Calculate tempo (orig/target)\nTEMPO=$(echo \"scale=4; $ORIG / $TARGET\" | bc)\necho \"Tempo: $TEMPO\"\n\n# Clamp tempo to 0.5-2.0 range\nif (( $(echo \"$TEMPO < 0.5\" | bc -l) )); then TEMPO=0.5; fi\nif (( $(echo \"$TEMPO > 2.0\" | bc -l) )); then TEMPO=2.0; fi\n\n# Apply speed adjustment\nffmpeg -y -i \"$INPUT\" -filter:a \"atempo=$TEMPO\" -vn \"$OUTPUT\"\n\n# Verify\nFINAL=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 \"$OUTPUT\")\necho \"Normalized: ${FINAL}s\"\necho \"$OUTPUT\""
+      },
+      "id": "tts10b",
+      "name": "Normalize Audio Speed",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        848,
+        -352
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=다음 숏폼 영상 스크립트를 분석하여 YouTube Shorts에 최적화된 메타데이터를 생성하세요.\n\n스크립트:\n{{ $('Parse AI Output').item.json.New_Script }}\n\n요구사항:\n1. title: 후킹 제목 (40자 이내, 이모지 1-2개 포함, 궁금증 유발)\n2. description: 설명글 (해시태그 5개 포함, CTA 포함)\n3. tags: 관련 태그 배열 (10개)",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "당신은 YouTube Shorts 최적화 전문가입니다.\n\n[제목 규칙]\n- 40자 이내\n- 숫자/이모지로 시선 끌기\n- '이거 몰랐죠?', '충격', '꿀팁' 등 후킹 워드\n- 물음표로 끝내서 궁금증 유발\n\n[설명글 규칙]\n- 첫 줄: 핵심 가치 제안\n- 중간: 내용 요약 2-3문장\n- 마지막: CTA (좋아요/구독 유도)\n- 해시태그 5개 (#shorts #AI #꿀팁 등)\n\n[태그 규칙]\n- 영상 주제 관련 키워드\n- 한국어 + 영어 혼합\n- 10개 정확히\n\n순수 JSON만 출력하세요."
+        }
+      },
+      "id": "yt01",
+      "name": "Generate YouTube Metadata",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        2432,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"title\": {\"type\": \"string\", \"description\": \"YouTube Shorts 제목 (40자 이내)\"},\n    \"description\": {\"type\": \"string\", \"description\": \"설명글 (해시태그 포함)\"},\n    \"tags\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}, \"description\": \"태그 10개\"}\n  },\n  \"required\": [\"title\", \"description\", \"tags\"]\n}"
+      },
+      "id": "yt02",
+      "name": "YouTube Metadata Parser",
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2608,
+        176
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a02a",
+      "name": "Limit to One",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 1. Google Sheets Integration\n\n**목적**: 작업 큐 관리\n\n**주요 노드**:\n- Get Google Sheets: pending 상태인 항목 조회\n- Update Status: processing으로 상태 변경\n- Update 시리즈: 각 단계 결과 저장\n\n**핵심 개념**:\n- `row_number`로 행 식별\n- `matchingColumns`로 업데이트 대상 지정\n- OAuth 2.0 인증 필요",
+        "height": 616,
+        "width": 448
+      },
+      "id": "sticky-1",
+      "name": "Section 1: Google Sheets",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -3888,
+        -416
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 2. YouTube Transcript 추출\n\n**목적**: 원본 영상의 스크립트 가져오기\n\n**주요 노드**:\n- HTTP Request: youtube-transcriptor API 호출\n- Parse Transcript: 응답 파싱\n- Check Transcript: 스크립트 존재 여부 확인\n\n**API 정보**:\n- RapidAPI: youtube-transcriptor\n- Header Auth: X-RapidAPI-Key",
+        "height": 620,
+        "width": 446,
+        "color": 2
+      },
+      "id": "sticky-2",
+      "name": "Section 2: YouTube Transcript",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -3280,
+        -416
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 3. AI Agent - 대본 생성\n\n**목적**: 새로운 숏폼 대본 + 이미지 프롬프트 생성\n\n**주요 노드**:\n- AI Script Agent: LangChain 기반 AI 에이전트\n- Structured Output Parser: JSON 출력 강제\n- Parse AI Output: 결과 파싱\n\n**출력 구조**:\n```json\n{\n  \"new_script\": \"300자 내외 나레이션\",\n  \"cuts\": [6개 컷 정보]\n}\n```\n\n**모델**: Google Gemini 2.5 Flash",
+        "height": 808,
+        "width": 428,
+        "color": 3
+      },
+      "id": "sticky-3",
+      "name": "Section 3: AI Agent",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2304,
+        -416
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 4a. TTS - ElevenLabs\n\n**목적**: 텍스트를 음성으로 변환\n\n**주요 노드**:\n- Prepare TTS Request: 랜덤 보이스 선택\n- Create TTS Task: Kie AI API 호출\n- Poll TTS Status: 완료 대기\n- Normalize Audio: 29초로 정규화 (FFMPEG)\n\n**API**: elevenlabs/text-to-dialogue-v3\n**비용**: $0.016/회",
+        "height": 700,
+        "width": 1470,
+        "color": 4
+      },
+      "id": "sticky-4a",
+      "name": "Section 4a: TTS (ElevenLabs)",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1040,
+        -656
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 4b. 이미지 생성 - Nano Banana Pro\n\n**목적**: 6개 컷 이미지 생성\n\n**주요 노드**:\n- Split Cuts to Items: 6개 항목으로 분리\n- Image Loop: 순차 처리\n- Create Image Task: Kie AI 호출\n- Poll Image Status: 15초 간격 폴링\n- Collect All Images: 결과 수집\n\n**API**: nano-banana-pro\n**해상도**: 9:16 (1K)\n**비용**: $0.09/장 × 6 = $0.54",
+        "height": 900,
+        "width": 1324,
+        "color": 5
+      },
+      "id": "sticky-4b",
+      "name": "Section 4b: Image Generation",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -928,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 4c. 비디오 생성 - Kling AI\n\n**목적**: 이미지를 5초 비디오로 변환\n\n**주요 노드**:\n- Split Images for Video: 이미지 분리\n- Video Loop: 순차 처리 (90초 대기)\n- Create Video Task: Kie AI 호출\n- Poll Video Status: 완료 대기\n- Collect All Videos: 결과 수집\n\n**API**: kling-2.6/image-to-video\n**중요**: 텍스트 고정 프롬프트 필수\n**비용**: $0.275/개 × 6 = $1.65",
+        "height": 916,
+        "width": 1900,
+        "color": 6
+      },
+      "id": "sticky-4c",
+      "name": "Section 4c: Video Generation",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        816,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 5. FFMPEG - 영상/오디오 결합\n\n**목적**: 6개 비디오 + 오디오 → 최종 영상\n\n**주요 노드**:\n- Merge Branches: TTS + Video 결과 합치기\n- Prepare Assembly: bash 스크립트 생성\n- Download and Assemble: 실행\n\n**FFMPEG 작업**:\n1. curl로 비디오 클립 다운로드\n2. concat.txt 생성\n3. ffmpeg -f concat → video_only.mp4\n4. ffmpeg 오디오 병합 → final.mp4\n\n**명령어 예시**:\n```bash\nffmpeg -y -i video.mp4 -i audio.mp3 \\\n  -c:v copy -c:a aac -shortest final.mp4\n```",
+        "height": 704,
+        "width": 436
+      },
+      "id": "sticky-5",
+      "name": "Section 5: FFMPEG Assembly",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1744,
+        -512
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 6. YouTube 업로드 & 완료\n\n**목적**: 최종 영상을 YouTube에 업로드\n\n**주요 노드**:\n- Read Final Video: 파일 읽기\n- AI Metadata Agent: 제목/설명/태그 생성\n- Prepare Upload Metadata: 업로드 준비\n- YouTube Upload: 업로드 실행\n- Final Update: 시트에 완료 기록\n\n**설정**:\n- privacyStatus: private (초기)\n- categoryId: 22 (People & Blogs)\n- selfDeclaredMadeForKids: false\n\n**비용 계산**:\n- TTS: $0.016\n- Images: $0.54\n- Videos: $1.65\n- AI: $0.05\n- **총계: ~$2.26/영상**",
+        "height": 884,
+        "width": 800,
+        "color": 2
+      },
+      "id": "sticky-6",
+      "name": "Section 6: YouTube Upload",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2368,
+        -544
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 오디오 길이 맞춤 (29초)\n\n### 오디오 음성 종류에 따라 말하는 길이가 모두 다르며 같은 300자라도 더 길어지면 영상 30초에 맞지 않음. 영상 속도 조절로 맞춤",
+        "height": 432,
+        "width": 224,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        784,
+        -592
+      ],
+      "id": "b986630d-d594-4950-89f1-f18c06c1cee8",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Get Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Update Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Transcript": {
+      "main": [
+        [
+          {
+            "node": "Check Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Transcript": {
+      "main": [
+        [
+          {
+            "node": "Update Original Script",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Transcript Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Original Script": {
+      "main": [
+        [
+          {
+            "node": "AI Script Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Script Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Script Agent": {
+      "main": [
+        [
+          {
+            "node": "Parse AI Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse AI Output": {
+      "main": [
+        [
+          {
+            "node": "Update AI Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update AI Data": {
+      "main": [
+        [
+          {
+            "node": "Prepare TTS Request",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Split Cuts to Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Cuts to Items": {
+      "main": [
+        [
+          {
+            "node": "Image Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image Loop": {
+      "main": [
+        [
+          {
+            "node": "Collect All Images",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create Image Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Image Task": {
+      "main": [
+        [
+          {
+            "node": "Init Image Poll",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Init Image Poll": {
+      "main": [
+        [
+          {
+            "node": "Wait for Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for Image": {
+      "main": [
+        [
+          {
+            "node": "Poll Image Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Poll Image Status": {
+      "main": [
+        [
+          {
+            "node": "Check Image Done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Image Done": {
+      "main": [
+        [
+          {
+            "node": "Store Image",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait Image Retry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store Image": {
+      "main": [
+        [
+          {
+            "node": "Image Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collect All Images": {
+      "main": [
+        [
+          {
+            "node": "Split Images for Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Images for Video": {
+      "main": [
+        [
+          {
+            "node": "Video Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Loop": {
+      "main": [
+        [
+          {
+            "node": "Collect All Videos",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create Video Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Video Task": {
+      "main": [
+        [
+          {
+            "node": "Init Video Poll",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Init Video Poll": {
+      "main": [
+        [
+          {
+            "node": "Wait for Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for Video": {
+      "main": [
+        [
+          {
+            "node": "Poll Video Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Poll Video Status": {
+      "main": [
+        [
+          {
+            "node": "Check Video Done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Video Done": {
+      "main": [
+        [
+          {
+            "node": "Store Video",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait Video Retry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store Video": {
+      "main": [
+        [
+          {
+            "node": "Video Loop",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Collect All Videos": {
+      "main": [
+        [
+          {
+            "node": "Merge Branches",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Branches": {
+      "main": [
+        [
+          {
+            "node": "Prepare Assembly",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download and Assemble": {
+      "main": [
+        [
+          {
+            "node": "Set Assembly Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Assembly Result": {
+      "main": [
+        [
+          {
+            "node": "Read Final Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Upload Metadata": {
+      "main": [
+        [
+          {
+            "node": "YouTube Upload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculate Cost": {
+      "main": [
+        [
+          {
+            "node": "Update Final Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Script Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Generate YouTube Metadata",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube Upload": {
+      "main": [
+        [
+          {
+            "node": "Calculate Cost",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait Image Retry": {
+      "main": [
+        [
+          {
+            "node": "Increment Image Retry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Increment Image Retry": {
+      "main": [
+        [
+          {
+            "node": "Poll Image Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait Video Retry": {
+      "main": [
+        [
+          {
+            "node": "Increment Video Retry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Increment Video Retry": {
+      "main": [
+        [
+          {
+            "node": "Poll Video Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Transcript": {
+      "main": [
+        [
+          {
+            "node": "Parse Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Status": {
+      "main": [
+        [
+          {
+            "node": "Extract Video ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Video ID": {
+      "main": [
+        [
+          {
+            "node": "Get Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare TTS Request": {
+      "main": [
+        [
+          {
+            "node": "Create TTS Task",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create TTS Task": {
+      "main": [
+        [
+          {
+            "node": "Init TTS Poll",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Init TTS Poll": {
+      "main": [
+        [
+          {
+            "node": "Wait for TTS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait for TTS": {
+      "main": [
+        [
+          {
+            "node": "Poll TTS Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Poll TTS Status": {
+      "main": [
+        [
+          {
+            "node": "Check TTS Done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check TTS Done": {
+      "main": [
+        [
+          {
+            "node": "Store TTS Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait TTS Retry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait TTS Retry": {
+      "main": [
+        [
+          {
+            "node": "Increment TTS Retry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Increment TTS Retry": {
+      "main": [
+        [
+          {
+            "node": "Poll TTS Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store TTS Result": {
+      "main": [
+        [
+          {
+            "node": "Create Audio Dir",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Audio Dir": {
+      "main": [
+        [
+          {
+            "node": "Download Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write TTS Audio": {
+      "main": [
+        [
+          {
+            "node": "Normalize Audio Speed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set TTS Audio Path": {
+      "main": [
+        [
+          {
+            "node": "Merge Branches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Audio": {
+      "main": [
+        [
+          {
+            "node": "Write TTS Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Audio Speed": {
+      "main": [
+        [
+          {
+            "node": "Set TTS Audio Path",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Final Video": {
+      "main": [
+        [
+          {
+            "node": "Generate YouTube Metadata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate YouTube Metadata": {
+      "main": [
+        [
+          {
+            "node": "Prepare Upload Metadata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "YouTube Metadata Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Generate YouTube Metadata",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Assembly": {
+      "main": [
+        [
+          {
+            "node": "Limit to One",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit to One": {
+      "main": [
+        [
+          {
+            "node": "Download and Assemble",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "versionId": "0f5c54f2-f117-434d-9a0d-70667bdb2556",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "553673f5075ec6c0f1e4c39d024b8b4c92d826b20e04328f9ca663bae48eda93"
+  },
+  "id": "tNJ1JXdp8V9maj7I",
+  "tags": []
+}
