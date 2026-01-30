@@ -1,0 +1,39 @@
+# n8n Lecture Repository - .gitignore
+
+# Internal/development files
+.sisyphus/
+tmp/
+*.jpg
+*.png
+*.mp4
+*.mp3
+
+# n8n specific
+opencode.json
+CLAUDE.md
+
+# Project internal docs (not needed for lecture)
+BOULDER_COMPLETE.md
+HANDOFF.md
+IMPLEMENTATION_STATUS.md
+INFRASTRUCTURE_SOLUTIONS.md
+INTEGRATION_TESTING.md
+NEXT_STEPS.md
+PROJECT_COMPLETE_SUMMARY.md
+SHEETS_REFERENCE.md
+TESTING_STATUS.md
+WORKFLOW_SETUP.md
+WORK_COMPLETE_SUMMARY.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node
+node_modules/
