@@ -74,7 +74,7 @@ AI가 자동으로 ngrok URL을 docker-compose.yml에 포함시켜 설정합니�
    ngrok config add-authtoken <대시보드에서_복사한_토큰>
    ```
 4. [Dashboard → Domains](https://dashboard.ngrok.com/domains)에서 고정 도메인 생성
-5. 생성된 도메인 메모 (예: `my-workflow.ngrok-free.app`)
+5. 생성된 도메인 메모 (예: `my-workflow.ngrok-free.dev`)
 
 **1단계: 폴더 만들기**
 
